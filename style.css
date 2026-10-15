@@ -119,3 +119,11 @@ main.container {
         justify-content: center;
     }
 }
+
+/* 训练动作图片自适应样式 */
+.exercise-img{
+    width: 100%;
+    max-width: 650px;
+    margin-top:12px;
+    border-radius:8px;
+}
