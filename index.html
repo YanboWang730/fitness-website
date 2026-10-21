@@ -2,58 +2,49 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <!-- 响应式必备标签，手机适配 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>健身部位训练指南 | 首页</title>
-    <!-- 引入外部css，路径是css/style.css -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>健身训练指南</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #f4f4f4; color: #222; }
+        header {
+            background: #222; color: #fff; padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        header h1 { font-size: 1.3rem; }
+        .top-nav a {
+            color: #fff; text-decoration: none; margin-left: 20px;
+            padding: 6px 14px; border-radius: 4px; transition: background .2s;
+        }
+        .top-nav a:hover { background: #ff6b35; }
+        .hero {
+            max-width: 800px; margin: 4rem auto; padding: 2rem;
+            background: #fff; border-radius: 10px;
+            box-shadow: 0 2px 8px #00000015; text-align: center;
+        }
+        .hero h2 { color: #ff6b35; margin-bottom: 1rem; }
+        .hero p { line-height: 1.8; color: #444; }
+        .start-btn {
+            display: inline-block; margin-top: 1.5rem; padding: 12px 28px;
+            background: #ff6b35; color: #fff; text-decoration: none;
+            border-radius: 6px; font-weight: bold;
+        }
+        .start-btn:hover { background: #e55a2b; }
+    </style>
 </head>
 <body>
-    <!-- 语义标签 header -->
-    <header class="site-header">
-        <div class="container">
-            <div class="logo">健身训练指南</div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="workout.html">训练部位选择</a></li>
-                    <li><a href="tips.html">训练贴士</a></li>
-                    <li><a href="about.html">关于本站</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header>
+        <h1>健身训练指南</h1>
+        <nav class="top-nav">
+            <a href="index.html" style="background:#ff6b35;">首页</a>
+            <a href="chest.html">肌群选择</a>
+        </nav>
     </header>
-
-    <!-- 语义标签 main -->
-    <main class="container">
-        <section class="intro">
-            <h2>选择目标训练部位，查看器械与动作推荐</h2>
-            <p>健身房力量训练参考网站，点击部位，查看可用器械与训练动作。</p>
-        </section>
-
-        <section class="card-grid">
-            <div class="card">
-                <h3>部位训练库</h3>
-                <p>胸 / 背 / 腿 / 肩 / 手臂 / 核心全套动作</p>
-                <a href="workout.html" class="btn">进入选择</a>
-            </div>
-            <div class="card">
-                <h3>训练贴士</h3>
-                <p>热身、组间休息、增肌饮食建议</p>
-                <a href="tips.html" class="btn">查看贴士</a>
-            </div>
-            <div class="card">
-                <h3>关于本站</h3>
-                <p>网站制作目的与介绍</p>
-                <a href="about.html" class="btn">了解更多</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2026 健身训练指南</p>
-        </div>
-    </footer>
+    <div class="hero">
+        <h2>欢迎来到健身训练指南</h2>
+        <p>在这里你可以查询不同肌群的训练动作，包含目标发力部位、器械说明和动作要点。</p>
+        <p>进入肌群选择后，左侧菜单可快速切换胸、背、肩、腿、核心、手臂等部位。</p>
+        <a class="start-btn" href="chest.html">开始训练 →</a>
+    </div>
 </body>
 </html>
