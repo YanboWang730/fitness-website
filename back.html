@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>背部训练 | 健身指南</title>
+    <title>背部训练 | Back Training</title>
     <style>
         * {
             margin: 0;
@@ -20,6 +20,12 @@
             color: white;
             padding: 1rem;
             text-align: center;
+        }
+        header h1 small {
+            font-size: 0.6em;
+            font-weight: normal;
+            opacity: 0.75;
+            display:block;
         }
         .top-nav{
             background: #333;
@@ -42,10 +48,10 @@
             min-height: calc(100vh - 112px);
             padding: 2rem 1rem;
         }
-        aside h3 {
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #ff6b35;
-            padding-bottom: 0.5rem;
+        aside h3 small {
+            font-size:0.7em;
+            opacity:0.7;
+            font-weight:normal;
         }
         aside ul {
             list-style: none;
@@ -67,6 +73,12 @@
         aside a:hover:not(.active) {
             background-color: #eee;
         }
+        .en-text {
+            font-size: 0.75em;
+            opacity: 0.65;
+            display:block;
+            margin-top:2px;
+        }
         main {
             flex: 1;
             padding: 2rem;
@@ -85,6 +97,11 @@
         .exercise-card h3 {
             color: #ff6b35;
             margin-bottom: 10px;
+        }
+        .exercise-card h3 .en-name {
+            font-size:0.75em;
+            font-weight:normal;
+            opacity:0.7;
         }
         .img-placeholder {
             width: 100%;
@@ -115,52 +132,56 @@
 </head>
 <body>
     <header>
-        <h1>健身训练指南</h1>
+        <h1>健身训练指南 <small>Fitness Training Guide</small></h1>
     </header>
     <nav class="top-nav">
-        <a href="index.html">🏠 首页</a>
+        <a href="index.html">🏠 首页 <span class="en-text">Home</span></a>
     </nav>
     <div class="container">
         <aside>
-            <h3>肌群选择</h3>
+            <h3>肌群选择 <small>Muscle Groups</small></h3>
             <ul>
-                <li><a href="chest.html">胸部</a></li>
-                <li><a href="back.html" class="active">背部</a></li>
-                <li><a href="shoulder.html">肩部</a></li>
-                <li><a href="leg.html">腿部</a></li>
-                <li><a href="core.html">核心</a></li>
-                <li><a href="arm.html">手臂</a></li>
+                <li><a href="chest.html">胸部 <span class="en-text">Chest</span></a></li>
+                <li><a href="back.html" class="active">背部 <span class="en-text">Back</span></a></li>
+                <li><a href="shoulder.html">肩部 <span class="en-text">Shoulder</span></a></li>
+                <li><a href="leg.html">腿部 <span class="en-text">Legs</span></a></li>
+                <li><a href="core.html">核心 <span class="en-text">Core</span></a></li>
+                <li><a href="arm.html">手臂 <span class="en-text">Arms</span></a></li>
             </ul>
         </aside>
         <main>
-            <h2>背部训练动作</h2>
+            <h2>背部训练动作 <span class="en-text">Back Exercises</span></h2>
 
             <section class="exercise-card">
-                <h3>引体向上</h3>
-                <div class="img-placeholder">[这里放图：引体向上，背阔肌红色高亮]</div>
-                <p class="target">目标肌群：背阔肌、大圆肌、肱二头肌、上背</p>
+                <h3>引体向上 <span class="en-name">Pull-Up</span></h3>
+                <div class="img-placeholder">[图：引体向上，背阔肌红色高亮 | Illustration: latissimus dorsi highlighted]</div>
+                <p class="target">目标肌群：背阔肌、大圆肌、肱二头肌、上背 <span class="en-text">Target: Lats, Teres Major, Biceps, Upper Back</span></p>
                 <p>动作说明：双手宽握单杠，挺胸沉肩，拉动身体向上直到下巴过杠，缓慢下放，全程不要耸肩。</p>
+                <p class="en-text">Instruction: Wide grip, chest up, shoulders down. Pull until chin over bar, lower slowly, avoid shrugging shoulders.</p>
             </section>
 
             <section class="exercise-card">
-                <h3>宽握高位下拉</h3>
-                <div class="img-placeholder">[这里放图：高位下拉，背阔外侧红色高亮]</div>
-                <p class="target">目标肌群：背阔肌外侧、大圆肌</p>
+                <h3>宽握高位下拉 <span class="en-name">Wide-Grip Lat Pulldown</span></h3>
+                <div class="img-placeholder">[图：高位下拉，背阔外侧红色高亮 | Illustration: outer lats highlighted]</div>
+                <p class="target">目标肌群：背阔肌外侧、大圆肌 <span class="en-text">Target: Outer Lats, Teres Major</span></p>
                 <p>动作说明：坐于器械，固定大腿，握杆略宽于肩，沉肩，把横杆拉至上胸位置，控制回放不要借力甩动。</p>
+                <p class="en-text">Instruction: Sit and lock thighs, wide grip, pull bar to upper chest, control the return without swinging.</p>
             </section>
 
             <section class="exercise-card">
-                <h3>坐姿绳索划船</h3>
-                <div class="img-placeholder">[这里放图：坐姿划船，中背菱形肌红色高亮]</div>
-                <p class="target">目标肌群：菱形肌、斜方肌中下束、中背、背阔中部</p>
+                <h3>坐姿绳索划船 <span class="en-name">Seated Cable Row</span></h3>
+                <div class="img-placeholder">[图：坐姿划船，中背菱形肌红色高亮 | Illustration: rhomboids highlighted]</div>
+                <p class="target">目标肌群：菱形肌、斜方肌中下束、中背、背阔中部 <span class="en-text">Target: Rhomboids, Mid-Lower Traps, Mid-Back</span></p>
                 <p>动作说明：脚踩踏板，屈膝，腰背挺直，把手柄拉向下腹部，肩胛骨向后收紧，缓慢放回。</p>
+                <p class="en-text">Instruction: Feet on platform, flat back. Pull handle toward lower belly, squeeze shoulder blades together, return slowly.</p>
             </section>
 
             <section class="exercise-card">
-                <h3>直臂下压</h3>
-                <div class="img-placeholder">[这里放图：直臂下压，背阔下沿红色高亮]</div>
-                <p class="target">目标肌群：背阔肌下沿（孤立背阔）</p>
+                <h3>直臂下压 <span class="en-name">Straight Arm Pulldown</span></h3>
+                <div class="img-placeholder">[图：直臂下压，背阔下沿红色高亮 | Illustration: lower lats highlighted]</div>
+                <p class="target">目标肌群：背阔肌下沿（孤立背阔） <span class="en-text">Target: Lower Lats (Isolation)</span></p>
                 <p>动作说明：微屈手肘固定角度，不要弯胳膊，用背阔发力把横杆向下压至大腿前侧，缓慢放回，重点感受背阔拉长收缩。</p>
+                <p class="en-text">Instruction: Keep elbows slightly bent and fixed. Pull bar down with lats only, focus on stretch and contraction of latissimus dorsi.</p>
             </section>
         </main>
     </div>

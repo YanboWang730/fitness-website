@@ -3,48 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>健身训练指南</title>
+    <title>健身训练指南 | Fitness Guide</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background: #f4f4f4; color: #222; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            color: #222;
+        }
         header {
-            background: #222; color: #fff; padding: 1rem 2rem;
-            display: flex; justify-content: space-between; align-items: center;
+            background-color: #222;
+            color: white;
+            padding: 1rem;
+            text-align: center;
         }
-        header h1 { font-size: 1.3rem; }
-        .top-nav a {
-            color: #fff; text-decoration: none; margin-left: 20px;
-            padding: 6px 14px; border-radius: 4px; transition: background .2s;
+        header h1 small {
+            font-size: 0.6em;
+            font-weight: normal;
+            opacity: 0.75;
+            display:block;
         }
-        .top-nav a:hover { background: #ff6b35; }
-        .hero {
-            max-width: 800px; margin: 4rem auto; padding: 2rem;
-            background: #fff; border-radius: 10px;
-            box-shadow: 0 2px 8px #00000015; text-align: center;
+        .top-nav{
+            background: #333;
+            padding:0.7rem;
+            text-align:center;
         }
-        .hero h2 { color: #ff6b35; margin-bottom: 1rem; }
-        .hero p { line-height: 1.8; color: #444; }
-        .start-btn {
-            display: inline-block; margin-top: 1.5rem; padding: 12px 28px;
-            background: #ff6b35; color: #fff; text-decoration: none;
-            border-radius: 6px; font-weight: bold;
+        .top-nav a{
+            color:#fff;
+            text-decoration:none;
         }
-        .start-btn:hover { background: #e55a2b; }
+        .top-nav a:hover{
+            color:#ff6b35;
+        }
+        .container {
+            display: flex;
+        }
+        aside {
+            width: 180px;
+            background: #fff;
+            min-height: calc(100vh - 112px);
+            padding: 2rem 1rem;
+        }
+        aside h3 small {
+            font-size:0.7em;
+            opacity:0.7;
+            font-weight:normal;
+        }
+        aside ul {
+            list-style: none;
+        }
+        aside li {
+            margin: 12px 0;
+        }
+        aside a {
+            text-decoration: none;
+            color: #222;
+            padding: 6px 8px;
+            display: block;
+            border-radius: 4px;
+        }
+        aside a.active {
+            background-color: #ff6b35;
+            color: white;
+        }
+        aside a:hover:not(.active) {
+            background-color: #eee;
+        }
+        .en-text {
+            font-size: 0.75em;
+            opacity: 0.65;
+            display:block;
+            margin-top:2px;
+        }
+        main {
+            flex: 1;
+            padding: 2rem;
+        }
+        h2 {
+            margin-bottom: 2rem;
+            color: #222;
+        }
+        .intro-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #00000015;
+            max-width: 700px;
+        }
+        .intro-card h3{
+            color:#ff6b35;
+            margin-bottom:12px;
+        }
+        @media (max-width:768px) {
+            .container {
+                flex-direction: column;
+            }
+            aside {
+                width: 100%;
+                min-height: auto;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>健身训练指南</h1>
-        <nav class="top-nav">
-            <a href="index.html" style="background:#ff6b35;">首页</a>
-            <a href="chest.html">肌群选择</a>
-        </nav>
+        <h1>健身训练指南 <small>Fitness Training Guide</small></h1>
     </header>
-    <div class="hero">
-        <h2>欢迎来到健身训练指南</h2>
-        <p>在这里你可以查询不同肌群的训练动作，包含目标发力部位、器械说明和动作要点。</p>
-        <p>进入肌群选择后，左侧菜单可快速切换胸、背、肩、腿、核心、手臂等部位。</p>
-        <a class="start-btn" href="chest.html">开始训练 →</a>
+    <nav class="top-nav">
+        <a href="index.html">🏠 首页 <span class="en-text">Home</span></a>
+    </nav>
+    <div class="container">
+        <aside>
+            <h3>肌群选择 <small>Muscle Groups</small></h3>
+            <ul>
+                <li><a href="chest.html">胸部 <span class="en-text">Chest</span></a></li>
+                <li><a href="back.html">背部 <span class="en-text">Back</span></a></li>
+                <li><a href="shoulder.html">肩部 <span class="en-text">Shoulder</span></a></li>
+                <li><a href="leg.html">腿部 <span class="en-text">Legs</span></a></li>
+                <li><a href="core.html">核心 <span class="en-text">Core</span></a></li>
+                <li><a href="arm.html">手臂 <span class="en-text">Arms</span></a></li>
+            </ul>
+        </aside>
+        <main>
+            <h2>欢迎来到健身训练指南 <span class="en-text">Welcome to Fitness Guide</span></h2>
+            <div class="intro-card">
+                <h3>网站介绍 <span class="en-text">About this site</span></h3>
+                <p>在这里你可以查询不同肌群的训练动作，包含目标发力部位、器械说明和动作要点。</p>
+                <p class="en-text">You can look up training exercises for different muscle groups, including target muscles, equipment and instructions.</p>
+                <br>
+                <p>左侧菜单栏选择你想要训练的肌群，查看对应的训练动作。每个动作都配有示意图，高亮展示发力肌肉。</p>
+                <p class="en-text">Select a muscle group from the left menu. Each exercise has an illustration with highlighted working muscles.</p>
+            </div>
+        </main>
     </div>
 </body>
 </html>
