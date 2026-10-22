@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>腿部训练 | Leg Training</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #222;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header h1 small {
+            font-size: 0.6em;
+            font-weight: normal;
+            opacity: 0.75;
+            display: block;
+        }
+
+        .top-nav {
+            background: #333;
+            padding: 0.7rem;
+            text-align: center;
+        }
+
+        .top-nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .top-nav a:hover {
+            color: #ff6b35;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        aside {
+            width: 180px;
+            background: #fff;
+            min-height: calc(100vh - 112px);
+            padding: 2rem 1rem;
+        }
+
+        aside h3 {
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #ff6b35;
+            padding-bottom: 0.5rem;
+        }
+
+        aside h3 small {
+            font-size: 0.7em;
+            opacity: 0.7;
+            font-weight: normal;
+        }
+
+        aside ul {
+            list-style: none;
+        }
+
+        aside li {
+            margin: 12px 0;
+        }
+
+        aside a {
+            text-decoration: none;
+            color: #222;
+            padding: 6px 8px;
+            display: block;
+            border-radius: 4px;
+        }
+
+        aside a.active {
+            background-color: #ff6b35;
+            color: white;
+        }
+
+        aside a:hover:not(.active) {
+            background-color: #eee;
+        }
+
+        .en-text {
+            font-size: 0.75em;
+            opacity: 0.65;
+            display: block;
+            margin-top: 2px;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        h2 {
+            margin-bottom: 2rem;
+            color: #222;
+        }
+
+        .exercise-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px #00000015;
+        }
+
+        .exercise-card h3 {
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+
+        .exercise-card h3 .en-name {
+            font-size: 0.75em;
+            font-weight: normal;
+            opacity: 0.7;
+        }
+
+        .img-placeholder {
+            width: 100%;
+            max-width: 450px;
+            height: 260px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 12px 0;
+            border-radius: 6px;
+            color: #666;
+        }
+
+        .target {
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            aside {
+                width: 100%;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>健身训练指南 <small>Fitness Training Guide</small></h1>
+</header>
+
+<nav class="top-nav">
+    <a href="index.html">🏠 首页 <span class="en-text">Home</span></a>
+</nav>
+
+<div class="container">
+    <aside>
+        <h3>肌群选择 <small>Muscle Groups</small></h3>
+        <ul>
+            <li><a href="chest.html">胸部 <span class="en-text">Chest</span></a></li>
+            <li><a href="back.html">背部 <span class="en-text">Back</span></a></li>
+            <li><a href="shoulder.html">肩部 <span class="en-text">Shoulder</span></a></li>
+            <li><a href="legs.html" class="active">腿部 <span class="en-text">Legs</span></a></li>
+            <li><a href="core.html">核心 <span class="en-text">Core</span></a></li>
+            <li><a href="arm.html">手臂 <span class="en-text">Arms</span></a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <h2>腿部训练动作 <span class="en-text">Leg Exercises</span></h2>
+
+        <section class="exercise-card">
+            <h3>深蹲 <span class="en-name">Squat</span></h3>
+            <div class="img-placeholder">[图：深蹲，腿部肌群红色高亮 | Illustration: leg muscles highlighted]</div>
+            <p class="target">目标肌群：股四头肌、臀大肌、腘绳肌 <span class="en-text">Target: Quads, Glutes, Hamstrings</span></p>
+            <p>动作说明：双脚与肩同宽，脚尖微外展，下蹲时髋部向后坐，背部保持挺直，蹲至大腿接近平行地面后发力站起。</p>
+            <p class="en-text">Instruction: Feet shoulder-width, toes slightly out. Hinge hips back, keep chest up, lower until thighs near parallel, then drive up.</p>
+        </section>
+
+        <section class="exercise-card">
+            <h3>倒蹬 <span class="en-name">Leg Press</span></h3>
+            <div class="img-placeholder">[图：倒蹬，腿部肌群红色高亮 | Illustration: leg muscles highlighted]</div>
+            <p class="target">目标肌群：股四头肌、臀大肌、腘绳肌 <span class="en-text">Target: Quads, Glutes, Hamstrings</span></p>
+            <p>动作说明：坐在倒蹬机上，背部贴紧靠背，双脚踩在踏板中部，膝盖朝脚尖方向，推起踏板后控制下放。</p>
+            <p class="en-text">Instruction: Sit with back padded, feet mid-platform. Knees follow toes, push the plate up, then lower with control.</p>
+        </section>
+
+        <section class="exercise-card">
+            <h3>保加利亚深蹲 <span class="en-name">Bulgarian Split Squat</span></h3>
+            <div class="img-placeholder">[图：保加利亚深蹲，单腿肌群红色高亮 | Illustration: single leg muscles highlighted]</div>
+            <p class="target">目标肌群：股四头肌、臀大肌、核心稳定 <span class="en-text">Target: Quads, Glutes, Core Stability</span></p>
+            <p>动作说明：一脚向后搭在凳面上，前脚踩稳，身体垂直下蹲，前膝对准脚尖，主要用前腿发力站起。</p>
+            <p class="en-text">Instruction: Rest rear foot on bench, keep front foot stable. Lower straight down, front knee tracking toes, drive up through front leg.</p>
+        </section>
+
+        <section class="exercise-card">
+            <h3>腿屈伸 <span class="en-name">Leg Extension</span></h3>
+            <div class="img-placeholder">[图：腿屈伸，股四头肌红色高亮 | Illustration: quads highlighted]</div>
+            <p class="target">目标肌群：股四头肌 <span class="en-text">Target: Quadriceps</span></p>
+            <p>动作说明：坐姿，膝盖对准器械轴心，脚背勾住垫筒，向前伸膝抬起重量，顶点停顿后缓慢下放。</p>
+            <p class="en-text">Instruction: Sit aligned with machine pivot, ankles under pad. Extend knees forward, pause at top, lower slowly.</p>
+        </section>
+
+        <section class="exercise-card">
+            <h3>腿弯举 <span class="en-name">Leg Curl</span></h3>
+            <div class="img-placeholder">[图：腿弯举，腘绳肌红色高亮 | Illustration: hamstrings highlighted]</div>
+            <p class="target">目标肌群：腘绳肌 <span class="en-text">Target: Hamstrings</span></p>
+            <p>动作说明：俯卧或坐姿，小腿脚跟抵住垫筒，屈膝向后收缩，重点感受大腿后侧发力，缓慢还原。</p>
+            <p class="en-text">Instruction: Lie prone or sit, heels against pad. Curl knees back, focus on hamstring contraction, return slowly.</p>
+        </section>
+
+    </main>
+</div>
+
+</body>
+</html>
