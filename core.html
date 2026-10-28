@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核心训练 | Core Workout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, sans-serif;
+        }
+        body {
+            background-color: #111111;
+            color: #eeeeee;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: #1a1a1a;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #282828;
+        }
+        .top-nav a {
+            color: #eeeeee;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 1.1rem;
+        }
+        .top-nav a:hover {
+            color: #ff7722;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+        }
+        aside {
+            width: 220px;
+            background: #161616;
+            padding: 2rem 1rem;
+            border-right: 1px solid #282828;
+        }
+        .aside-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ff7722;
+        }
+        .aside-menu a {
+            display: block;
+            color: #bbbbbb;
+            text-decoration: none;
+            padding: 10px 6px;
+            margin: 4px 0;
+            border-radius: 4px;
+        }
+        .aside-menu a:hover {
+            background: #222222;
+            color: #ff7722;
+        }
+        .aside-menu a.active {
+            color: #ff7722;
+        }
+        main {
+            flex: 1;
+            padding: 2rem;
+        }
+        h1 {
+            margin-bottom: 2rem;
+            color: #ff7722;
+        }
+        .exercise-card {
+            background: #181818;
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #282828;
+        }
+        .exercise-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+        }
+        .en-name {
+            color: #999999;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+        .img-placeholder {
+            width: 100%;
+            height: 220px;
+            background: #202020;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777777;
+            margin: 10px 0;
+        }
+        .desc p {
+            line-height: 1.6;
+            color: #dddddd;
+            margin: 6px 0;
+        }
+        @media (max-width:768px) {
+            .container {
+                flex-direction: column;
+            }
+            aside {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #282828;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-nav">
+            <a href="index.html">首页 | Home</a>
+            <a href="#muscle">肌群选择 | Muscle Groups</a>
+        </div>
+    </header>
+    <div class="container">
+        <aside id="muscle">
+            <div class="aside-title">肌群选择<br>Muscle Groups</div>
+            <div class="aside-menu">
+                <a href="chest.html">胸部 | Chest</a>
+                <a href="back.html">背部 | Back</a>
+                <a href="shoulder.html">肩部 | Shoulder</a>
+                <a href="leg.html">腿部 | Leg</a>
+                <a href="core.html" class="active">核心 | Core</a>
+                <a href="arm.html">手臂 | Arm</a>
+            </div>
+        </aside>
+        <main>
+            <h1>核心训练 Core Workout</h1>
+
+            <div class="exercise-card">
+                <h2>卷腹</h2>
+                <div class="en-name">Crunch</div>
+                <div class="img-placeholder">[动作图：卷腹，上腹标红]</div>
+                <div class="desc">
+                    <p>目标肌群：上腹</p>
+                    <p>Target: Upper Abdominals</p>
+                    <p>说明：屈膝平躺，肩胛骨抬离地面，不要整个人坐起，感受上腹收缩。</p>
+                    <p>Instruction: Lie supine with knees bent. Lift your shoulder blades off the floor, focus on upper abs contraction.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <h2>悬垂举腿</h2>
+                <div class="en-name">Hanging Leg Raise</div>
+                <div class="img-placeholder">[动作图：悬垂举腿，下腹标红]</div>
+                <div class="desc">
+                    <p>目标肌群：下腹</p>
+                    <p>Target: Lower Abdominals</p>
+                    <p>说明：双手抓单杠悬空，双腿伸直抬起至与地面平行，缓慢下放，避免甩动借力。</p>
+                    <p>Instruction: Hang from a pull-up bar. Raise straight legs to horizontal, lower slowly, avoid swinging.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <h2>俄罗斯转体</h2>
+                <div class="en-name">Russian Twist</div>
+                <div class="img-placeholder">[动作图：俄罗斯转体，腹斜肌标红]</div>
+                <div class="desc">
+                    <p>目标肌群：腹斜肌（侧腰）</p>
+                    <p>Target: Obliques</p>
+                    <p>说明：上半身后倾，双脚离地，双手合十左右转动躯干，挤压侧腰。</p>
+                    <p>Instruction: Lean back, lift feet off ground, rotate torso side to side, squeeze obliques.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <h2>绳索卷腹</h2>
+                <div class="en-name">Cable Crunch</h2>
+                <div class="img-placeholder">[动作图：绳索卷腹，上腹标红]</div>
+                <div class="desc">
+                    <p>目标肌群：上腹</p>
+                    <p>Target: Upper Abdominals</p>
+                    <p>说明：跪在器械前，双手拉住绳索，用腹部发力把身体向下卷，缓慢回位。</p>
+                    <p>Instruction: Kneel facing cable machine. Pull the rope down by crunching abs, return slowly.</p>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <h2>仰卧举腿</h2>
+                <div class="en-name">Supine Leg Raise</div>
+                <div class="img-placeholder">[动作图：仰卧举腿，下腹标红]</div>
+                <div class="desc">
+                    <p>目标肌群：下腹</p>
+                    <p>Target: Lower Abdominals</p>
+                    <p>说明：平躺地面，双手垫在臀部下方，双腿伸直抬起再缓慢下放，脚后跟不要落地。</p>
+                    <p>Instruction: Lie flat, hands under hips. Raise straight legs, lower slowly, keep heels off floor.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
