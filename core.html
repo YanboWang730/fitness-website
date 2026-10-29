@@ -115,10 +115,52 @@
             margin: 12px 0;
             border-radius: 6px;
             color: #666;
+            cursor: pointer;
         }
-        .target {
-            font-weight: bold;
-            margin: 8px 0;
+        .tip-text{
+            color:#777;
+            font-size:0.9em;
+        }
+        /* 弹窗样式 */
+        .modal-overlay{
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,0.6);
+            display:none;
+            align-items:center;
+            justify-content:center;
+            z-index:999;
+            padding:1rem;
+        }
+        .modal-box{
+            background:#fff;
+            max-width:600px;
+            width:100%;
+            padding:1.8rem;
+            border-radius:10px;
+            position:relative;
+        }
+        .modal-close{
+            position:absolute;
+            top:12px;
+            right:16px;
+            font-size:1.6rem;
+            cursor:pointer;
+            color:#666;
+        }
+        .modal-close:hover{
+            color:#ff6b35;
+        }
+        .modal-box h4{
+            color:#ff6b35;
+            margin-bottom:12px;
+        }
+        .modal-box p{
+            margin:8px 0;
+            line-height:1.6;
         }
         @media (max-width:768px) {
             .container {
@@ -153,47 +195,79 @@
         <main>
             <h2>核心训练动作 <span class="en-text">Core Exercises</span></h2>
 
-        <section class="exercise-card">
-            <h3>卷腹 <span class="en-name">Crunch</span></h3>
-            <div class="img-placeholder">[图：卷腹，上腹红色高亮 | Illustration: upper abs highlighted]</div>
-            <p class="target">目标肌群：上腹 <span class="en-text">Target: Upper Abdominals</span></p>
-            <p>动作说明：屈膝平躺，肩胛骨抬离地面，不要整个人坐起，感受上腹收缩。</p>
-            <p class="en-text">Instruction: Lie supine with knees bent. Lift shoulder blades off the floor, focus on upper abs contraction.</p>
-        </section>
+            <section class="exercise-card" data-title="卷腹 | Crunch" data-target="目标肌群：上腹 | Target: Upper Abdominals" data-cn="动作说明：屈膝平躺，肩胛骨抬离地面，不要整个人坐起，感受上腹收缩。" data-en="Instruction: Lie supine with knees bent. Lift shoulder blades off the floor, focus on upper abs contraction.">
+                <h3>卷腹 <span class="en-name">Crunch</span></h3>
+                <div class="img-placeholder">[图：卷腹，上腹红色高亮 | Illustration: upper abs highlighted]</div>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+            </section>
 
-        <section class="exercise-card">
-            <h3>悬垂举腿 <span class="en-name">Hanging Leg Raise</span></h3>
-            <div class="img-placeholder">[图：悬垂举腿，下腹红色高亮 | Illustration: lower abs highlighted]</div>
-            <p class="target">目标肌群：下腹 <span class="en-text">Target: Lower Abdominals</span></p>
-            <p>动作说明：双手抓单杠悬空，双腿伸直抬起至与地面平行，缓慢下放，避免甩动借力。</p>
-            <p class="en-text">Instruction: Hang from a pull-up bar. Raise straight legs to horizontal, lower slowly, avoid swinging.</p>
-        </section>
+            <section class="exercise-card" data-title="悬垂举腿 | Hanging Leg Raise" data-target="目标肌群：下腹 | Target: Lower Abdominals" data-cn="动作说明：双手抓单杠悬空，双腿伸直抬起至与地面平行，缓慢下放，避免甩动借力。" data-en="Instruction: Hang from a pull-up bar. Raise straight legs to horizontal, lower slowly, avoid swinging.">
+                <h3>悬垂举腿 <span class="en-name">Hanging Leg Raise</span></h3>
+                <div class="img-placeholder">[图：悬垂举腿，下腹红色高亮 | Illustration: lower abs highlighted]</div>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+            </section>
 
-        <section class="exercise-card">
-            <h3>俄罗斯转体 <span class="en-name">Russian Twist</span></h3>
-            <div class="img-placeholder">[图：俄罗斯转体，腹斜肌红色高亮 | Illustration: obliques highlighted]</div>
-            <p class="target">目标肌群：腹斜肌（侧腰） <span class="en-text">Target: Obliques</span></p>
-            <p>动作说明：上半身后倾，双脚离地，双手合十左右转动躯干，挤压侧腰。</p>
-            <p class="en-text">Instruction: Lean back, lift feet off ground, rotate torso side to side, squeeze obliques.</p>
-        </section>
+            <section class="exercise-card" data-title="俄罗斯转体 | Russian Twist" data-target="目标肌群：腹斜肌（侧腰） | Target: Obliques" data-cn="动作说明：上半身后倾，双脚离地，双手合十左右转动躯干，挤压侧腰。" data-en="Instruction: Lean back, lift feet off ground, rotate torso side to side, squeeze obliques.">
+                <h3>俄罗斯转体 <span class="en-name">Russian Twist</span></h3>
+                <div class="img-placeholder">[图：俄罗斯转体，腹斜肌红色高亮 | Illustration: obliques highlighted]</div>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+            </section>
 
-        <section class="exercise-card">
-            <h3>绳索卷腹 <span class="en-name">Cable Crunch</span></h3>
-            <div class="img-placeholder">[图：绳索卷腹，上腹红色高亮 | Illustration: upper abs highlighted]</div>
-            <p class="target">目标肌群：上腹 <span class="en-text">Target: Upper Abdominals</span></p>
-            <p>动作说明：跪在器械前，双手拉住绳索，用腹部发力把身体向下卷，缓慢回位。</p>
-            <p class="en-text">Instruction: Kneel facing cable machine. Pull the rope down by crunching abs, return slowly.</p>
-        </section>
+            <section class="exercise-card" data-title="绳索卷腹 | Cable Crunch" data-target="目标肌群：上腹 | Target: Upper Abdominals" data-cn="动作说明：跪在器械前，双手拉住绳索，用腹部发力把身体向下卷，缓慢回位。" data-en="Instruction: Kneel facing cable machine. Pull the rope down by crunching abs, return slowly.">
+                <h3>绳索卷腹 <span class="en-name">Cable Crunch</span></h3>
+                <div class="img-placeholder">[图：绳索卷腹，上腹红色高亮 | Illustration: upper abs highlighted]</div>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+            </section>
 
-        <section class="exercise-card">
-            <h3>仰卧举腿 <span class="en-name">Supine Leg Raise</span></h3>
-            <div class="img-placeholder">[图：仰卧举腿，下腹红色高亮 | Illustration: lower abs highlighted]</div>
-            <p class="target">目标肌群：下腹 <span class="en-text">Target: Lower Abdominals</span></p>
-            <p>动作说明：平躺地面，双手垫在臀部下方，双腿伸直抬起再缓慢下放，脚后跟不要落地。</p>
-            <p class="en-text">Instruction: Lie flat, hands under hips. Raise straight legs, lower slowly, keep heels off floor.</p>
-        </section>
+            <section class="exercise-card" data-title="仰卧举腿 | Supine Leg Raise" data-target="目标肌群：下腹 | Target: Lower Abdominals" data-cn="动作说明：平躺地面，双手垫在臀部下方，双腿伸直抬起再缓慢下放，脚后跟不要落地。" data-en="Instruction: Lie flat, hands under hips. Raise straight legs, lower slowly, keep heels off floor.">
+                <h3>仰卧举腿 <span class="en-name">Supine Leg Raise</span></h3>
+                <div class="img-placeholder">[图：仰卧举腿，下腹红色高亮 | Illustration: lower abs highlighted]</div>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+            </section>
+        </main>
+    </div>
 
-    </main>
-</div>
+    <!-- 弹窗模板 -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-box">
+            <span class="modal-close">&times;</span>
+            <h4 id="modal-title"></h4>
+            <p id="modal-target"></p>
+            <p id="modal-cn"></p>
+            <p id="modal-en"></p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalTarget = document.getElementById('modal-target');
+        const modalCn = document.getElementById('modal-cn');
+        const modalEn = document.getElementById('modal-en');
+        const closeBtn = document.querySelector('.modal-close');
+
+        // 点击图片打开弹窗
+        document.querySelectorAll('.img-placeholder').forEach(img => {
+            img.addEventListener('click', ()=>{
+                const card = img.closest('.exercise-card');
+                modalTitle.textContent = card.dataset.title;
+                modalTarget.textContent = card.dataset.target;
+                modalCn.textContent = card.dataset.cn;
+                modalEn.textContent = card.dataset.en;
+                modal.style.display = 'flex';
+            })
+        })
+
+        // ×关闭
+        closeBtn.addEventListener('click', ()=>{
+            modal.style.display = 'none';
+        })
+        // 点击蒙层关闭
+        modal.addEventListener('click', (e)=>{
+            if(e.target === modal){
+                modal.style.display = 'none';
+            }
+        })
+    </script>
 </body>
 </html>

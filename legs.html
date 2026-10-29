@@ -115,10 +115,52 @@
             margin: 12px 0;
             border-radius: 6px;
             color: #666;
+            cursor: pointer;
         }
-        .target {
-            font-weight: bold;
-            margin: 8px 0;
+        .tip-text{
+            color:#777;
+            font-size:0.9em;
+        }
+        /* 弹窗样式 */
+        .modal-overlay{
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,0.6);
+            display:none;
+            align-items:center;
+            justify-content:center;
+            z-index:999;
+            padding:1rem;
+        }
+        .modal-box{
+            background:#fff;
+            max-width:600px;
+            width:100%;
+            padding:1.8rem;
+            border-radius:10px;
+            position:relative;
+        }
+        .modal-close{
+            position:absolute;
+            top:12px;
+            right:16px;
+            font-size:1.6rem;
+            cursor:pointer;
+            color:#666;
+        }
+        .modal-close:hover{
+            color:#ff6b35;
+        }
+        .modal-box h4{
+            color:#ff6b35;
+            margin-bottom:12px;
+        }
+        .modal-box p{
+            margin:8px 0;
+            line-height:1.6;
         }
         @media (max-width:768px) {
             .container {
@@ -153,46 +195,79 @@
         <main>
             <h2>腿部训练动作 <span class="en-text">Leg Exercises</span></h2>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="深蹲 | Squat" data-target="目标肌群：股四头肌、臀大肌、腘绳肌 | Target: Quads, Glutes, Hamstrings" data-cn="动作说明：双脚与肩同宽，脚尖微外展，下蹲时髋部向后坐，背部保持挺直，蹲至大腿接近平行地面后发力站起。" data-en="Instruction: Feet shoulder-width, toes slightly out. Hinge hips back, keep chest up, lower until thighs near parallel, then drive up.">
                 <h3>深蹲 <span class="en-name">Squat</span></h3>
                 <div class="img-placeholder">[图：深蹲，腿部肌群红色高亮 | Illustration: leg muscles highlighted]</div>
-                <p class="target">目标肌群：股四头肌、臀大肌、腘绳肌 <span class="en-text">Target: Quads, Glutes, Hamstrings</span></p>
-                <p>动作说明：双脚与肩同宽，脚尖微外展，下蹲时髋部向后坐，背部保持挺直，蹲至大腿接近平行地面后发力站起。</p>
-                <p class="en-text">Instruction: Feet shoulder-width, toes slightly out. Hinge hips back, keep chest up, lower until thighs near parallel, then drive up.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="倒蹬 | Leg Press" data-target="目标肌群：股四头肌、臀大肌、腘绳肌 | Target: Quads, Glutes, Hamstrings" data-cn="动作说明：坐在倒蹬机上，背部贴紧靠背，双脚踩在踏板中部，膝盖朝脚尖方向，推起踏板后控制下放。" data-en="Instruction: Sit with back padded, feet mid-platform. Knees follow toes, push the plate up, then lower with control.">
                 <h3>倒蹬 <span class="en-name">Leg Press</span></h3>
                 <div class="img-placeholder">[图：倒蹬，腿部肌群红色高亮 | Illustration: leg muscles highlighted]</div>
-                <p class="target">目标肌群：股四头肌、臀大肌、腘绳肌 <span class="en-text">Target: Quads, Glutes, Hamstrings</span></p>
-                <p>动作说明：坐在倒蹬机上，背部贴紧靠背，双脚踩在踏板中部，膝盖朝脚尖方向，推起踏板后控制下放。</p>
-                <p class="en-text">Instruction: Sit with back padded, feet mid-platform. Knees follow toes, push the plate up, then lower with control.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="保加利亚深蹲 | Bulgarian Split Squat" data-target="目标肌群：股四头肌、臀大肌、核心稳定 | Target: Quads, Glutes, Core Stability" data-cn="动作说明：一脚向后搭在凳面上，前脚踩稳，身体垂直下蹲，前膝对准脚尖，主要用前腿发力站起。" data-en="Instruction: Rest rear foot on bench, keep front foot stable. Lower straight down, front knee tracking toes, drive up through front leg.">
                 <h3>保加利亚深蹲 <span class="en-name">Bulgarian Split Squat</span></h3>
                 <div class="img-placeholder">[图：保加利亚深蹲，单腿肌群红色高亮 | Illustration: single leg muscles highlighted]</div>
-                <p class="target">目标肌群：股四头肌、臀大肌、核心稳定 <span class="en-text">Target: Quads, Glutes, Core Stability</span></p>
-                <p>动作说明：一脚向后搭在凳面上，前脚踩稳，身体垂直下蹲，前膝对准脚尖，主要用前腿发力站起。</p>
-                <p class="en-text">Instruction: Rest rear foot on bench, keep front foot stable. Lower straight down, front knee tracking toes, drive up through front leg.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="腿屈伸 | Leg Extension" data-target="目标肌群：股四头肌 | Target: Quadriceps" data-cn="动作说明：坐姿，膝盖对准器械轴心，脚背勾住垫筒，向前伸膝抬起重量，顶点停顿后缓慢下放。" data-en="Instruction: Sit aligned with machine pivot, ankles under pad. Extend knees forward, pause at top, lower slowly.">
                 <h3>腿屈伸 <span class="en-name">Leg Extension</span></h3>
                 <div class="img-placeholder">[图：腿屈伸，股四头肌红色高亮 | Illustration: quads highlighted]</div>
-                <p class="target">目标肌群：股四头肌 <span class="en-text">Target: Quadriceps</span></p>
-                <p>动作说明：坐姿，膝盖对准器械轴心，脚背勾住垫筒，向前伸膝抬起重量，顶点停顿后缓慢下放。</p>
-                <p class="en-text">Instruction: Sit aligned with machine pivot, ankles under pad. Extend knees forward, pause at top, lower slowly.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="腿弯举 | Leg Curl" data-target="目标肌群：腘绳肌 | Target: Hamstrings" data-cn="动作说明：俯卧或坐姿，小腿脚跟抵住垫筒，屈膝向后收缩，重点感受大腿后侧发力，缓慢还原。" data-en="Instruction: Lie prone or sit, heels against pad. Curl knees back, focus on hamstring contraction, return slowly.">
                 <h3>腿弯举 <span class="en-name">Leg Curl</span></h3>
                 <div class="img-placeholder">[图：腿弯举，腘绳肌红色高亮 | Illustration: hamstrings highlighted]</div>
-                <p class="target">目标肌群：腘绳肌 <span class="en-text">Target: Hamstrings</span></p>
-                <p>动作说明：俯卧或坐姿，小腿脚跟抵住垫筒，屈膝向后收缩，重点感受大腿后侧发力，缓慢还原。</p>
-                <p class="en-text">Instruction: Lie prone or sit, heels against pad. Curl knees back, focus on hamstring contraction, return slowly.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
         </main>
     </div>
+
+    <!-- 弹窗模板 -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-box">
+            <span class="modal-close">&times;</span>
+            <h4 id="modal-title"></h4>
+            <p id="modal-target"></p>
+            <p id="modal-cn"></p>
+            <p id="modal-en"></p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalTarget = document.getElementById('modal-target');
+        const modalCn = document.getElementById('modal-cn');
+        const modalEn = document.getElementById('modal-en');
+        const closeBtn = document.querySelector('.modal-close');
+
+        // 点击图片打开弹窗
+        document.querySelectorAll('.img-placeholder').forEach(img => {
+            img.addEventListener('click', ()=>{
+                const card = img.closest('.exercise-card');
+                modalTitle.textContent = card.dataset.title;
+                modalTarget.textContent = card.dataset.target;
+                modalCn.textContent = card.dataset.cn;
+                modalEn.textContent = card.dataset.en;
+                modal.style.display = 'flex';
+            })
+        })
+
+        // ×关闭
+        closeBtn.addEventListener('click', ()=>{
+            modal.style.display = 'none';
+        })
+        // 点击蒙层关闭
+        modal.addEventListener('click', (e)=>{
+            if(e.target === modal){
+                modal.style.display = 'none';
+            }
+        })
+    </script>
 </body>
 </html>

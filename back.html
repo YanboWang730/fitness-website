@@ -115,10 +115,52 @@
             margin: 12px 0;
             border-radius: 6px;
             color: #666;
+            cursor: pointer;
         }
-        .target {
-            font-weight: bold;
-            margin: 8px 0;
+        .tip-text{
+            color:#777;
+            font-size:0.9em;
+        }
+        /* 弹窗样式 */
+        .modal-overlay{
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,0.6);
+            display:none;
+            align-items:center;
+            justify-content:center;
+            z-index:999;
+            padding:1rem;
+        }
+        .modal-box{
+            background:#fff;
+            max-width:600px;
+            width:100%;
+            padding:1.8rem;
+            border-radius:10px;
+            position:relative;
+        }
+        .modal-close{
+            position:absolute;
+            top:12px;
+            right:16px;
+            font-size:1.6rem;
+            cursor:pointer;
+            color:#666;
+        }
+        .modal-close:hover{
+            color:#ff6b35;
+        }
+        .modal-box h4{
+            color:#ff6b35;
+            margin-bottom:12px;
+        }
+        .modal-box p{
+            margin:8px 0;
+            line-height:1.6;
         }
         @media (max-width:768px) {
             .container {
@@ -153,38 +195,73 @@
         <main>
             <h2>背部训练动作 <span class="en-text">Back Exercises</span></h2>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="引体向上 | Pull-Up" data-target="目标肌群：背阔肌、大圆肌、肱二头肌、上背 | Target: Lats, Teres Major, Biceps, Upper Back" data-cn="动作说明：双手宽握单杠，挺胸沉肩，拉动身体向上直到下巴过杠，缓慢下放，全程不要耸肩。" data-en="Instruction: Wide grip, chest up, shoulders down. Pull until chin over bar, lower slowly, avoid shrugging shoulders.">
                 <h3>引体向上 <span class="en-name">Pull-Up</span></h3>
                 <div class="img-placeholder">[图：引体向上，背阔肌红色高亮 | Illustration: latissimus dorsi highlighted]</div>
-                <p class="target">目标肌群：背阔肌、大圆肌、肱二头肌、上背 <span class="en-text">Target: Lats, Teres Major, Biceps, Upper Back</span></p>
-                <p>动作说明：双手宽握单杠，挺胸沉肩，拉动身体向上直到下巴过杠，缓慢下放，全程不要耸肩。</p>
-                <p class="en-text">Instruction: Wide grip, chest up, shoulders down. Pull until chin over bar, lower slowly, avoid shrugging shoulders.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="宽握高位下拉 | Wide-Grip Lat Pulldown" data-target="目标肌群：背阔肌外侧、大圆肌 | Target: Outer Lats, Teres Major" data-cn="动作说明：坐于器械，固定大腿，握杆略宽于肩，沉肩，把横杆拉至上胸位置，控制回放不要借力甩动。" data-en="Instruction: Sit and lock thighs, wide grip, pull bar to upper chest, control the return without swinging.">
                 <h3>宽握高位下拉 <span class="en-name">Wide-Grip Lat Pulldown</span></h3>
                 <div class="img-placeholder">[图：高位下拉，背阔外侧红色高亮 | Illustration: outer lats highlighted]</div>
-                <p class="target">目标肌群：背阔肌外侧、大圆肌 <span class="en-text">Target: Outer Lats, Teres Major</span></p>
-                <p>动作说明：坐于器械，固定大腿，握杆略宽于肩，沉肩，把横杆拉至上胸位置，控制回放不要借力甩动。</p>
-                <p class="en-text">Instruction: Sit and lock thighs, wide grip, pull bar to upper chest, control the return without swinging.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="坐姿绳索划船 | Seated Cable Row" data-target="目标肌群：菱形肌、斜方肌中下束、中背、背阔中部 | Target: Rhomboids, Mid-Lower Traps, Mid-Back" data-cn="动作说明：脚踩踏板，屈膝，腰背挺直，把手柄拉向下腹部，肩胛骨向后收紧，缓慢放回。" data-en="Instruction: Feet on platform, flat back. Pull handle toward lower belly, squeeze shoulder blades together, return slowly.">
                 <h3>坐姿绳索划船 <span class="en-name">Seated Cable Row</span></h3>
                 <div class="img-placeholder">[图：坐姿划船，中背菱形肌红色高亮 | Illustration: rhomboids highlighted]</div>
-                <p class="target">目标肌群：菱形肌、斜方肌中下束、中背、背阔中部 <span class="en-text">Target: Rhomboids, Mid-Lower Traps, Mid-Back</span></p>
-                <p>动作说明：脚踩踏板，屈膝，腰背挺直，把手柄拉向下腹部，肩胛骨向后收紧，缓慢放回。</p>
-                <p class="en-text">Instruction: Feet on platform, flat back. Pull handle toward lower belly, squeeze shoulder blades together, return slowly.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="直臂下压 | Straight Arm Pulldown" data-target="目标肌群：背阔肌下沿（孤立背阔） | Target: Lower Lats (Isolation)" data-cn="动作说明：微屈手肘固定角度，不要弯胳膊，用背阔发力把横杆向下压至大腿前侧，缓慢放回，重点感受背阔拉长收缩。" data-en="Instruction: Keep elbows slightly bent and fixed. Pull bar down with lats only, focus on stretch and contraction of latissimus dorsi.">
                 <h3>直臂下压 <span class="en-name">Straight Arm Pulldown</span></h3>
                 <div class="img-placeholder">[图：直臂下压，背阔下沿红色高亮 | Illustration: lower lats highlighted]</div>
-                <p class="target">目标肌群：背阔肌下沿（孤立背阔） <span class="en-text">Target: Lower Lats (Isolation)</span></p>
-                <p>动作说明：微屈手肘固定角度，不要弯胳膊，用背阔发力把横杆向下压至大腿前侧，缓慢放回，重点感受背阔拉长收缩。</p>
-                <p class="en-text">Instruction: Keep elbows slightly bent and fixed. Pull bar down with lats only, focus on stretch and contraction of latissimus dorsi.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
         </main>
     </div>
+
+    <!-- 弹窗模板 -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-box">
+            <span class="modal-close">&times;</span>
+            <h4 id="modal-title"></h4>
+            <p id="modal-target"></p>
+            <p id="modal-cn"></p>
+            <p id="modal-en"></p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalTarget = document.getElementById('modal-target');
+        const modalCn = document.getElementById('modal-cn');
+        const modalEn = document.getElementById('modal-en');
+        const closeBtn = document.querySelector('.modal-close');
+
+        // 点击图片打开弹窗
+        document.querySelectorAll('.img-placeholder').forEach(img => {
+            img.addEventListener('click', ()=>{
+                const card = img.closest('.exercise-card');
+                modalTitle.textContent = card.dataset.title;
+                modalTarget.textContent = card.dataset.target;
+                modalCn.textContent = card.dataset.cn;
+                modalEn.textContent = card.dataset.en;
+                modal.style.display = 'flex';
+            })
+        })
+
+        // ×关闭
+        closeBtn.addEventListener('click', ()=>{
+            modal.style.display = 'none';
+        })
+        // 点击蒙层关闭
+        modal.addEventListener('click', (e)=>{
+            if(e.target === modal){
+                modal.style.display = 'none';
+            }
+        })
+    </script>
 </body>
 </html>

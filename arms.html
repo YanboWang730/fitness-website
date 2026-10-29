@@ -115,10 +115,52 @@
             margin: 12px 0;
             border-radius: 6px;
             color: #666;
+            cursor: pointer;
         }
-        .target {
-            font-weight: bold;
-            margin: 8px 0;
+        .tip-text{
+            color:#777;
+            font-size:0.9em;
+        }
+        /* 弹窗样式 */
+        .modal-overlay{
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,0.6);
+            display:none;
+            align-items:center;
+            justify-content:center;
+            z-index:999;
+            padding:1rem;
+        }
+        .modal-box{
+            background:#fff;
+            max-width:600px;
+            width:100%;
+            padding:1.8rem;
+            border-radius:10px;
+            position:relative;
+        }
+        .modal-close{
+            position:absolute;
+            top:12px;
+            right:16px;
+            font-size:1.6rem;
+            cursor:pointer;
+            color:#666;
+        }
+        .modal-close:hover{
+            color:#ff6b35;
+        }
+        .modal-box h4{
+            color:#ff6b35;
+            margin-bottom:12px;
+        }
+        .modal-box p{
+            margin:8px 0;
+            line-height:1.6;
         }
         @media (max-width:768px) {
             .container {
@@ -153,55 +195,85 @@
     <main>
         <h2>手臂训练动作 <span class="en-text">Arms Exercises</span></h2>
 
-        <section class="exercise-card">
+        <section class="exercise-card" data-title="绳索下压 | Rope Tricep Pushdown" data-target="目标肌群：肱三头肌 | Target: Triceps Brachii" data-cn="动作说明：龙门架装上绳索把手，大臂贴紧身体不动，小臂向下压，顶峰收紧三头，缓慢放回。" data-en="Instruction: Attach rope to cable. Keep upper arms tight to torso, push forearm down, squeeze triceps and return slowly.">
             <h3>绳索下压 <span class="en-name">Rope Tricep Pushdown</span></h3>
             <div class="img-placeholder">[图：绳索下压，肱三头肌红色高亮 | Illustration: triceps highlighted]</div>
-            <p class="target">目标肌群：肱三头肌 <span class="en-text">Target: Triceps Brachii</span></p>
-            <p>动作说明：龙门架装上绳索把手，大臂贴紧身体不动，小臂向下压，顶峰收紧三头，缓慢放回。</p>
-            <p class="en-text">Instruction: Attach rope to cable. Keep upper arms tight to torso, push forearm down, squeeze triceps and return slowly.</p>
+            <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
         </section>
 
-        <section class="exercise-card">
+        <section class="exercise-card" data-title="单手绳索臂屈伸 | Single Arm Cable Tricep Extension" data-target="目标肌群：肱三头肌 | Target: Triceps Brachii" data-cn="动作说明：单手握住高位绳索，手肘朝上固定，小臂向前伸展，感受单侧三头充分拉伸收缩。" data-en="Instruction: Grip high cable with one hand, elbow pointing up. Extend forearm forward to stretch and contract triceps.">
             <h3>单手绳索臂屈伸 <span class="en-name">Single Arm Cable Tricep Extension</span></h3>
             <div class="img-placeholder">[图：单手绳索臂屈伸，肱三头肌红色高亮 | Illustration: triceps highlighted]</div>
-            <p class="target">目标肌群：肱三头肌 <span class="en-text">Target: Triceps Brachii</span></p>
-            <p>动作说明：单手握住高位绳索，手肘朝上固定，小臂向前伸展，感受单侧三头充分拉伸收缩。</p>
-            <p class="en-text">Instruction: Grip high cable with one hand, elbow pointing up. Extend forearm forward to stretch and contract triceps.</p>
+            <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
         </section>
 
-        <section class="exercise-card">
+        <section class="exercise-card" data-title="仰卧杠铃臂屈伸 | Lying Barbell Tricep Extension" data-target="目标肌群：肱三头肌长头 | Target: Long head of Triceps" data-cn="动作说明：平躺卧推凳，杠铃在头顶上方，只活动肘关节，缓慢向额头下放再伸直推起。" data-en="Instruction: Lie flat on bench, bar over head. Only bend elbow, lower bar toward forehead then extend back up.">
             <h3>仰卧杠铃臂屈伸 <span class="en-name">Lying Barbell Tricep Extension</span></h3>
             <div class="img-placeholder">[图：仰卧杠铃臂屈伸，肱三头肌红色高亮 | Illustration: triceps highlighted]</div>
-            <p class="target">目标肌群：肱三头肌长头 <span class="en-text">Target: Long head of Triceps</span></p>
-            <p>动作说明：平躺卧推凳，杠铃在头顶上方，只活动肘关节，缓慢向额头下放再伸直推起。</p>
-            <p class="en-text">Instruction: Lie flat on bench, bar over head. Only bend elbow, lower bar toward forehead then extend back up.</p>
+            <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
         </section>
 
-        <section class="exercise-card">
+        <section class="exercise-card" data-title="锤式弯举 | Hammer Curl" data-target="目标肌群：肱肌、肱桡肌 | Target: Brachialis & Brachioradialis" data-cn="动作说明：双手握哑铃，掌心相对，大臂贴紧身体，向上弯举，顶峰停顿，匀速下放。" data-en="Instruction: Hold dumbbells with palms facing each other. Keep upper arm fixed, curl up, squeeze and lower slowly.">
             <h3>锤式弯举 <span class="en-name">Hammer Curl</span></h3>
             <div class="img-placeholder">[图：锤式弯举，肱肌、肱桡肌红色高亮 | Illustration: brachialis & brachioradialis highlighted]</div>
-            <p class="target">目标肌群：肱肌、肱桡肌 <span class="en-text">Target: Brachialis & Brachioradialis</span></p>
-            <p>动作说明：双手握哑铃，掌心相对，大臂贴紧身体，向上弯举，顶峰停顿，匀速下放。</p>
-            <p class="en-text">Instruction: Hold dumbbells with palms facing each other. Keep upper arm fixed, curl up, squeeze and lower slowly.</p>
+            <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
         </section>
 
-        <section class="exercise-card">
+        <section class="exercise-card" data-title="牧师凳弯举 | Preacher Curl" data-target="目标肌群：肱二头肌 | Target: Biceps Brachii" data-cn="动作说明：手臂搭在牧师凳斜面上，大臂固定，弯举哑铃/杠铃，全程控制，减少借力。" data-en="Instruction: Rest arms on preacher pad, fix upper arm. Curl weight upward with controlled movement, no swinging.">
             <h3>牧师凳弯举 <span class="en-name">Preacher Curl</span></h3>
             <div class="img-placeholder">[图：牧师凳弯举，肱二头肌红色高亮 | Illustration: biceps brachii highlighted]</div>
-            <p class="target">目标肌群：肱二头肌 <span class="en-text">Target: Biceps Brachii</span></p>
-            <p>动作说明：手臂搭在牧师凳斜面上，大臂固定，弯举哑铃/杠铃，全程控制，减少借力。</p>
-            <p class="en-text">Instruction: Rest arms on preacher pad, fix upper arm. Curl weight upward with controlled movement, no swinging.</p>
+            <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
         </section>
 
-        <section class="exercise-card">
+        <section class="exercise-card" data-title="坐姿绳索二头弯举 | Seated Cable Bicep Curl" data-target="目标肌群：肱二头肌 | Target: Biceps Brachii" data-cn="动作说明：坐姿，低位绳索把手，大臂贴紧身体，向上弯举，绳索持续保持张力，收缩感更强。" data-en="Instruction: Sit down, grip low cable handle. Upper arm stationary, curl up. Cable provides constant tension on biceps.">
             <h3>坐姿绳索二头弯举 <span class="en-name">Seated Cable Bicep Curl</span></h3>
             <div class="img-placeholder">[图：坐姿绳索二头弯举，肱二头肌红色高亮 | Illustration: biceps brachii highlighted]</div>
-            <p class="target">目标肌群：肱二头肌 <span class="en-text">Target: Biceps Brachii</span></p>
-            <p>动作说明：坐姿，低位绳索把手，大臂贴紧身体，向上弯举，绳索持续保持张力，收缩感更强。</p>
-            <p class="en-text">Instruction: Sit down, grip low cable handle. Upper arm stationary, curl up. Cable provides constant tension on biceps.</p>
+            <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
         </section>
-
     </main>
 </div>
+
+<!-- 弹窗模板 -->
+<div class="modal-overlay" id="modal">
+    <div class="modal-box">
+        <span class="modal-close">&times;</span>
+        <h4 id="modal-title"></h4>
+        <p id="modal-target"></p>
+        <p id="modal-cn"></p>
+        <p id="modal-en"></p>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalTarget = document.getElementById('modal-target');
+    const modalCn = document.getElementById('modal-cn');
+    const modalEn = document.getElementById('modal-en');
+    const closeBtn = document.querySelector('.modal-close');
+
+    // 点击图片打开弹窗
+    document.querySelectorAll('.img-placeholder').forEach(img => {
+        img.addEventListener('click', ()=>{
+            const card = img.closest('.exercise-card');
+            modalTitle.textContent = card.dataset.title;
+            modalTarget.textContent = card.dataset.target;
+            modalCn.textContent = card.dataset.cn;
+            modalEn.textContent = card.dataset.en;
+            modal.style.display = 'flex';
+        })
+    })
+
+    // ×关闭
+    closeBtn.addEventListener('click', ()=>{
+        modal.style.display = 'none';
+    })
+    // 点击蒙层关闭
+    modal.addEventListener('click', (e)=>{
+        if(e.target === modal){
+            modal.style.display = 'none';
+        }
+    })
+</script>
 </body>
 </html>

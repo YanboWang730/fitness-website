@@ -115,10 +115,52 @@
             margin: 12px 0;
             border-radius: 6px;
             color: #666;
+            cursor: pointer;
         }
-        .target {
-            font-weight: bold;
-            margin: 8px 0;
+        .tip-text{
+            color:#777;
+            font-size:0.9em;
+        }
+        /* 弹窗样式 */
+        .modal-overlay{
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,0.6);
+            display:none;
+            align-items:center;
+            justify-content:center;
+            z-index:999;
+            padding:1rem;
+        }
+        .modal-box{
+            background:#fff;
+            max-width:600px;
+            width:100%;
+            padding:1.8rem;
+            border-radius:10px;
+            position:relative;
+        }
+        .modal-close{
+            position:absolute;
+            top:12px;
+            right:16px;
+            font-size:1.6rem;
+            cursor:pointer;
+            color:#666;
+        }
+        .modal-close:hover{
+            color:#ff6b35;
+        }
+        .modal-box h4{
+            color:#ff6b35;
+            margin-bottom:12px;
+        }
+        .modal-box p{
+            margin:8px 0;
+            line-height:1.6;
         }
         @media (max-width:768px) {
             .container {
@@ -153,54 +195,85 @@
         <main>
             <h2>肩部训练动作 <span class="en-text">Shoulder Exercises</span></h2>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="哑铃坐姿推肩 | Seated Dumbbell Shoulder Press" data-target="目标肌群：三角肌前束、中束（整体肩膀） | Target: Anterior & Medial Deltoids" data-cn="动作说明：坐在凳上，腰背贴实，哑铃举到耳朵两侧，掌心朝前，垂直向上推起，顶点不要锁死肘关节，缓慢下放。" data-en="Instruction: Sit upright, dumbbells at ear level. Press straight up, avoid locking elbows, lower with control.">
                 <h3>哑铃坐姿推肩 <span class="en-name">Seated Dumbbell Shoulder Press</span></h3>
                 <div class="img-placeholder">[图：坐姿哑铃推肩，三角肌中束+前束红色高亮 | Illustration: anterior & medial delts highlighted]</div>
-                <p class="target">目标肌群：三角肌前束、中束（整体肩膀）<span class="en-text">Target: Anterior & Medial Deltoids</span></p>
-                <p>动作说明：坐在凳上，腰背贴实，哑铃举到耳朵两侧，掌心朝前，垂直向上推起，顶点不要锁死肘关节，缓慢下放。</p>
-                <p class="en-text">Instruction: Sit upright, dumbbells at ear level. Press straight up, avoid locking elbows, lower with control.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="哑铃前平举 | Dumbbell Front Raise" data-target="目标肌群：三角肌前束 | Target: Anterior Deltoids" data-cn="动作说明：站姿，手臂自然下垂，手肘微弯，哑铃向前抬到与肩平齐，顶峰稍停，匀速下放，不要甩动借力。" data-en="Instruction: Stand with slight elbow bend. Raise dumbbells forward to shoulder height, pause, lower slowly, no swinging.">
                 <h3>哑铃前平举 <span class="en-name">Dumbbell Front Raise</span></h3>
                 <div class="img-placeholder">[图：哑铃前平举，三角肌前束红色高亮 | Illustration: anterior delts highlighted]</div>
-                <p class="target">目标肌群：三角肌前束 <span class="en-text">Target: Anterior Deltoids</span></p>
-                <p>动作说明：站姿，手臂自然下垂，手肘微弯，哑铃向前抬到与肩平齐，顶峰稍停，匀速下放，不要甩动借力。</p>
-                <p class="en-text">Instruction: Stand with slight elbow bend. Raise dumbbells forward to shoulder height, pause, lower slowly, no swinging.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="哑铃俯身飞鸟 | Bent-Over Dumbbell Reverse Fly" data-target="目标肌群：三角肌后束、上背 | Target: Posterior Deltoids, Upper Back" data-cn="动作说明：髋部折叠俯身，背部平直，手臂微屈，向两侧打开哑铃，感受肩膀后侧收紧，缓慢还原。" data-en="Instruction: Hinge at hips, flat back, soft elbows. Open dumbbells outwards, squeeze rear shoulder, return slowly.">
                 <h3>哑铃俯身飞鸟 <span class="en-name">Bent-Over Dumbbell Reverse Fly</span></h3>
                 <div class="img-placeholder">[图：俯身飞鸟，三角肌后束红色高亮 | Illustration: posterior delts highlighted]</div>
-                <p class="target">目标肌群：三角肌后束、上背 <span class="en-text">Target: Posterior Deltoids, Upper Back</span></p>
-                <p>动作说明：髋部折叠俯身，背部平直，手臂微屈，向两侧打开哑铃，感受肩膀后侧收紧，缓慢还原。</p>
-                <p class="en-text">Instruction: Hinge at hips, flat back, soft elbows. Open dumbbells outwards, squeeze rear shoulder, return slowly.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="史密斯推肩 | Smith Machine Shoulder Press" data-target="目标肌群：三角肌前束、中束 | Target: Anterior & Medial Deltoids" data-cn="动作说明：座椅调好高度，杠铃落在锁骨上方，竖直向上推起，轨迹稳定，适合新手找肩部发力、控制重量。" data-en="Instruction: Adjust seat, bar at upper chest. Press vertically. Fixed path is friendly for beginners to master form.">
                 <h3>史密斯推肩 <span class="en-name">Smith Machine Shoulder Press</span></h3>
                 <div class="img-placeholder">[图：史密斯推肩，三角肌前束、中束红色高亮 | Illustration: anterior & medial delts highlighted]</div>
-                <p class="target">目标肌群：三角肌前束、中束 <span class="en-text">Target: Anterior & Medial Deltoids</span></p>
-                <p>动作说明：座椅调好高度，杠铃落在锁骨上方，竖直向上推起，轨迹稳定，适合新手找肩部发力、控制重量。</p>
-                <p class="en-text">Instruction: Adjust seat, bar at upper chest. Press vertically. Fixed path is friendly for beginners to master form.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="哑铃侧平举 | Dumbbell Lateral Raise" data-target="目标肌群：三角肌中束（加宽肩膀） | Target: Medial Deltoids (Shoulder width)" data-cn="动作说明：站姿，手肘保持微弯固定，哑铃向两侧抬至肩高，想象往远泼水，不要抬太高超过耳朵，慢放。" data-en="Instruction: Stand, keep elbows slightly bent. Raise dumbbells sideways to shoulder level, avoid lifting above ears.">
                 <h3>哑铃侧平举 <span class="en-name">Dumbbell Lateral Raise</span></h3>
                 <div class="img-placeholder">[图：哑铃侧平举，三角肌中束红色高亮 | Illustration: medial delts highlighted]</div>
-                <p class="target">目标肌群：三角肌中束（加宽肩膀） <span class="en-text">Target: Medial Deltoids (Shoulder width)</span></p>
-                <p>动作说明：站姿，手肘保持微弯固定，哑铃向两侧抬至肩高，想象往远泼水，不要抬太高超过耳朵，慢放。</p>
-                <p class="en-text">Instruction: Stand, keep elbows slightly bent. Raise dumbbells sideways to shoulder level, avoid lifting above ears.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
 
-            <section class="exercise-card">
+            <section class="exercise-card" data-title="绳索面拉 | Cable Face Pull" data-target="目标肌群：三角肌后束、肩袖肌群、中下斜方肌 | Target: Posterior Delts, Rotator Cuff, Mid-lower Traps" data-cn="动作说明：高位绳索，拉绳索向额头/面部，手肘向外打开，肩胛骨后缩收紧，这个动作对改善圆肩很友好。" data-en="Instruction: High pulley. Pull rope toward forehead, flare elbows out, squeeze shoulder blades. Great for rounded shoulder posture.">
                 <h3>绳索面拉 <span class="en-name">Cable Face Pull</span></h3>
                 <div class="img-placeholder">[图：绳索面拉，三角肌后束、肩袖、上斜方下束红色高亮 | Illustration: rear delts & rotator cuff highlighted]</div>
-                <p class="target">目标肌群：三角肌后束、肩袖肌群、中下斜方肌 <span class="en-text">Target: Posterior Delts, Rotator Cuff, Mid-lower Traps</span></p>
-                <p>动作说明：高位绳索，拉绳索向额头/面部，手肘向外打开，肩胛骨后缩收紧，这个动作对改善圆肩很友好。</p>
-                <p class="en-text">Instruction: High pulley. Pull rope toward forehead, flare elbows out, squeeze shoulder blades. Great for rounded shoulder posture.</p>
+                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
             </section>
         </main>
     </div>
+
+    <!-- 弹窗模板 -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-box">
+            <span class="modal-close">&times;</span>
+            <h4 id="modal-title"></h4>
+            <p id="modal-target"></p>
+            <p id="modal-cn"></p>
+            <p id="modal-en"></p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalTarget = document.getElementById('modal-target');
+        const modalCn = document.getElementById('modal-cn');
+        const modalEn = document.getElementById('modal-en');
+        const closeBtn = document.querySelector('.modal-close');
+
+        // 点击图片打开弹窗
+        document.querySelectorAll('.img-placeholder').forEach(img => {
+            img.addEventListener('click', ()=>{
+                const card = img.closest('.exercise-card');
+                modalTitle.textContent = card.dataset.title;
+                modalTarget.textContent = card.dataset.target;
+                modalCn.textContent = card.dataset.cn;
+                modalEn.textContent = card.dataset.en;
+                modal.style.display = 'flex';
+            })
+        })
+
+        // ×关闭
+        closeBtn.addEventListener('click', ()=>{
+            modal.style.display = 'none';
+        })
+        // 点击蒙层关闭
+        modal.addEventListener('click', (e)=>{
+            if(e.target === modal){
+                modal.style.display = 'none';
+            }
+        })
+    </script>
 </body>
 </html>
