@@ -121,9 +121,10 @@ main.container {
 }
 
 /* 训练动作图片自适应样式 */
-.exercise-img{
-    width: 100%;
-    max-width: 650px;
-    margin-top:12px;
-    border-radius:8px;
+.action-card img {
+  width: 100%;
+  height: auto;
+  max-height: 320px;  
+  object-fit: cover; 
+  border-radius: 8px;
 }
