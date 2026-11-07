@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
             text-align: center;
         }
         header h1 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
         }
         small {
             font-weight: normal;
@@ -60,12 +60,12 @@
         }
         .en-name {
             color:#777;
-            font-size:0.9rem;
+            font-size:1rem;
             font-weight:normal;
         }
         .en-text {
             color: #707070;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
         .start-btn {
             background-color: #ff7722;
@@ -93,9 +93,9 @@
 <header>
     <h1>健身训练指南 <small>Fitness Training Guide</small></h1>
 </header>
-<!-- 首页删掉top-nav导航栏，不再显示首页链接 -->
+
 <div class="container">
-    <!-- 首页不写aside侧边栏！！只有首页没有侧边栏 -->
+    
     <main>
         <h2>欢迎来到健身训练指南 <span class="en-text">Welcome to Fitness Guide</span></h2>
         <section class="intro-card">
@@ -112,5 +112,17 @@
         </a>
     </main>
 </div>
+
+<footer style="text-align:center; padding:1.2rem; color:#888; background:#eee; margin-top:1rem;">
+    <p>© 2024 Fitness Training Guide</p>
+</footer>
+
+<script>
+
+document.querySelector('.start-btn').addEventListener('click', function() {
+    setTimeout(() => alert('Welcome! Let\'s start training!'), 100);
+});
+</script>
+
 </body>
 </html>
