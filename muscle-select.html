@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -121,6 +121,7 @@
     </header>
     <nav class="top-nav">
         <a href="index.html">🏠 <span class="zh">首页</span> <span class="en en-text">Home</span></a>
+        <a href="chest.html">💪 <span class="zh">动作详解</span> <span class="en en-text">Exercise Details</span></a>
         <a href="muscle-select.html">💪 <span class="zh">肌群选择</span> <span class="en en-text">Muscle Select</span></a>
         <a href="about.html">ℹ️ <span class="zh">关于</span> <span class="en en-text">About</span></a>
     </nav>
@@ -132,8 +133,14 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
     <script>
         // ========== 主题 & 语言 全局逻辑 ==========
         const html = document.documentElement;
@@ -179,19 +186,28 @@
         }
         initTheme();
         initLang();
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
         // ========== Three.js 3D线框人体模型 ==========
         const scene = new THREE.Scene();
         scene.background = new THREE.Color(0xeeeeee);
 
-        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / (window.innerHeight - 130), 0.1, 100);
+        const container = document.getElementById('canvas-wrap');
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+
+        const camera = new THREE.PerspectiveCamera(50, w / h, 0.1, 100);
         camera.position.set(0, 0, 9);
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight - 130);
-        document.getElementById('canvas-wrap').appendChild(renderer.domElement);
+        renderer.setSize(w, h);
+        container.appendChild(renderer.domElement);
 
-        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
         controls.dampingFactor = 0.08;
         controls.minDistance = 5;
@@ -289,9 +305,11 @@
         animate();
 
         window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / (window.innerHeight - 130);
+            const w2 = container.clientWidth;
+            const h2 = container.clientHeight;
+            camera.aspect = w2 / h2;
             camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight - 130);
+            renderer.setSize(w2, h2);
         });
     </script>
 </body>
