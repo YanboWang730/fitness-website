@@ -227,87 +227,75 @@
     <script type="module">
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-        // ========== Three.js 3D线框人体模型 ==========
+        // ========== Three.js 3D 人体模型 ==========
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xeeeeee);
+        scene.background = new THREE.Color(0xf0f0f0);
 
         const container = document.getElementById('canvas-wrap');
         const w = container.clientWidth;
         const h = container.clientHeight;
 
-        const camera = new THREE.PerspectiveCamera(50, w / h, 0.1, 100);
-        camera.position.set(0, 0, 9);
+        const camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 100);
+        camera.position.set(0, 1.2, 5);
 
         const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(w, h);
+        renderer.shadowMap.enabled = true;
         container.appendChild(renderer.domElement);
 
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
         controls.dampingFactor = 0.08;
-        controls.minDistance = 5;
-        controls.maxDistance = 20;
+        controls.minDistance = 2;
+        controls.maxDistance = 10;
+        controls.target.set(0, 1, 0);
 
-        // 线框材质（蓝色，身体）
-        const bodyMat = new THREE.MeshBasicMaterial({
-            color: 0x4488dd,
-            wireframe: true
-        });
-        // 胸肌材质（橙色，可点击）
+        // 灯光
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(3, 5, 5);
+        dirLight.castShadow = true;
+        scene.add(dirLight);
+        const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.4);
+        dirLight2.position.set(-3, 3, -3);
+        scene.add(dirLight2);
+
+        // 胸肌点击热区（橙色半透明球体）
+        const chestGeo = new THREE.SphereGeometry(0.35, 16, 12);
         const chestMat = new THREE.MeshBasicMaterial({
             color: 0xff6b35,
-            wireframe: true
+            transparent: true,
+            opacity: 0.5
         });
-
-        // 躯干
-        const torsoGeo = new THREE.BoxGeometry(2.0, 2.8, 1.0);
-        const torso = new THREE.Mesh(torsoGeo, bodyMat);
-        torso.position.y = 0.8;
-        scene.add(torso);
-
-        // 胸肌（可点击区域，橙色高亮）
-        const chestGeo = new THREE.BoxGeometry(1.6, 1.2, 0.3);
         const chestMesh = new THREE.Mesh(chestGeo, chestMat);
-        chestMesh.position.set(0, 1.1, 0.55);
+        chestMesh.position.set(0, 1.35, 0.25);
         chestMesh.userData.link = "chest.html";
         scene.add(chestMesh);
 
-        // 左上臂
-        const armGeo = new THREE.BoxGeometry(0.6, 2.2, 0.6);
-        const leftArm = new THREE.Mesh(armGeo, bodyMat);
-        leftArm.position.set(-1.3, 1.2, 0);
-        scene.add(leftArm);
-        // 右上臂
-        const rightArm = new THREE.Mesh(armGeo, bodyMat);
-        rightArm.position.set(1.3, 1.2, 0);
-        scene.add(rightArm);
-
-        // 左前臂
-        const foreArmGeo = new THREE.BoxGeometry(0.5, 1.8, 0.5);
-        const leftForeArm = new THREE.Mesh(foreArmGeo, bodyMat);
-        leftForeArm.position.set(-1.3, -1.2, 0);
-        scene.add(leftForeArm);
-        // 右前臂
-        const rightForeArm = new THREE.Mesh(foreArmGeo, bodyMat);
-        rightForeArm.position.set(1.3, -1.2, 0);
-        scene.add(rightForeArm);
-
-        // 左大腿
-        const legGeo = new THREE.BoxGeometry(0.7, 2.8, 0.7);
-        const leftLeg = new THREE.Mesh(legGeo, bodyMat);
-        leftLeg.position.set(-0.6, -2.0, 0);
-        scene.add(leftLeg);
-        // 右大腿
-        const rightLeg = new THREE.Mesh(legGeo, bodyMat);
-        rightLeg.position.set(0.6, -2.0, 0);
-        scene.add(rightLeg);
-
-        // 头部（简单球体线框）
-        const headGeo = new THREE.SphereGeometry(0.5, 12, 10);
-        const head = new THREE.Mesh(headGeo, bodyMat);
-        head.position.y = 2.8;
-        scene.add(head);
+        // 加载人体模型
+        const loader = new GLTFLoader();
+        loader.load(
+            'https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/models/gltf/Xbot.glb',
+            function (gltf) {
+                const model = gltf.scene;
+                model.scale.set(0.015, 0.015, 0.015);
+                model.position.set(0, 0, 0);
+                scene.add(model);
+            },
+            undefined,
+            function (error) {
+                console.error('模型加载失败', error);
+                // 加载失败的话，用简单的胶囊体代替
+                const bodyGeo = new THREE.CapsuleGeometry(0.3, 1.2, 8, 16);
+                const bodyMat = new THREE.MeshStandardMaterial({ color: 0x888888 });
+                const body = new THREE.Mesh(bodyGeo, bodyMat);
+                body.position.y = 1;
+                scene.add(body);
+            }
+        );
 
         // 点击检测
         const raycaster = new THREE.Raycaster();
@@ -323,7 +311,7 @@
             }
         });
 
-        // 悬停效果（鼠标变手型）
+        // 悬停效果
         renderer.domElement.addEventListener('mousemove', (e) => {
             const rect = renderer.domElement.getBoundingClientRect();
             pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
