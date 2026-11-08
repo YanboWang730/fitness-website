@@ -58,11 +58,15 @@
         header h1 {
             font-size: 1.5rem;
         }
-        .theme-toggle {
+        .header-btns {
             position: absolute;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .theme-toggle {
             background: transparent;
             border: 2px solid #666;
             color: var(--header-text);
@@ -73,6 +77,13 @@
         }
         .theme-toggle:hover {
             border-color: var(--accent);
+        }
+        /* 语言模式：默认中文，隐藏英文 */
+        html:not([data-lang="en"]) .en {
+            display: none;
+        }
+        html[data-lang="en"] .zh {
+            display: none;
         }
         small {
             font-weight: normal;
@@ -160,25 +171,28 @@
 </head>
 <body>
 <header>
-    <h1>健身训练指南 <small>Fitness Training Guide</small></h1>
-    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+    <h1><span class="zh">健身训练指南</span> <small class="en">Fitness Training Guide</small></h1>
+    <div class="header-btns">
+        <button class="theme-toggle" onclick="toggleLang()" id="langBtn">EN</button>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+    </div>
 </header>
 
 <div class="container">
     
     <main>
-        <h2>欢迎来到健身训练指南 <span class="en-text">Welcome to Fitness Guide</span></h2>
+        <h2><span class="zh">欢迎来到健身训练指南</span> <span class="en en-text">Welcome to Fitness Guide</span></h2>
         <section class="intro-card">
-            <h3>网站介绍 <span class="en-name">About this site</span></h3>
-            <p>在这里你可以查询不同肌群的训练动作，包含目标发力部位、器械说明和动作要点。</p>
-            <p class="en-text">You can look up training exercises for different muscle groups, including target muscles, equipment and instructions.</p>
+            <h3><span class="zh">网站介绍</span> <span class="en en-name">About this site</span></h3>
+            <p class="zh">在这里你可以查询不同肌群的训练动作，包含目标发力部位、器械说明和动作要点。</p>
+            <p class="en en-text">You can look up training exercises for different muscle groups, including target muscles, equipment and instructions.</p>
             <br>
-            <p>点击开始训练选择你想要训练的肌群，查看对应的训练动作。</p>
-            <p class="en-text">Click Start Training, select the muscle groups you want to train, and view the corresponding training exercises.</p>
+            <p class="zh">点击开始训练选择你想要训练的肌群，查看对应的训练动作。</p>
+            <p class="en en-text">Click Start Training, select the muscle groups you want to train, and view the corresponding training exercises.</p>
         </section>
         <a href="chest.html" class="start-btn">
-            开始训练
-            <span class="en-text">Begin Exercises</span>
+            <span class="zh">开始训练</span>
+            <span class="en en-text">Begin Exercises</span>
         </a>
     </main>
 </div>
@@ -189,6 +203,26 @@
 
 <script src="js/theme.js"></script>
 <script>
+// 初始化语言：默认中文
+(function initLang(){
+    const saved = localStorage.getItem('lang');
+    if(saved === 'en'){
+        document.documentElement.setAttribute('data-lang', 'en');
+        document.getElementById('langBtn').textContent = '中';
+    } else {
+        document.documentElement.setAttribute('data-lang', 'zh');
+        document.getElementById('langBtn').textContent = 'EN';
+    }
+})();
+
+function toggleLang(){
+    const current = document.documentElement.getAttribute('data-lang');
+    const next = current === 'en' ? 'zh' : 'en';
+    document.documentElement.setAttribute('data-lang', next);
+    localStorage.setItem('lang', next);
+    document.getElementById('langBtn').textContent = next === 'en' ? '中' : 'EN';
+}
+
 document.querySelector('.start-btn').addEventListener('click', function() {
     setTimeout(() => alert('Welcome! Let\'s start training!'), 100);
 });
