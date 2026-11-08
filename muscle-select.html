@@ -243,17 +243,48 @@
             color: var(--text-muted);
             font-size: 0.95rem;
         }
+        .bmi-scale-wrap {
+            position: relative;
+            margin: 24px 0 10px;
+        }
         .bmi-scale {
             display: flex;
-            height: 30px;
+            height: 20px;
             border-radius: 6px;
-            overflow: hidden;
-            margin: 16px 0;
+            overflow: visible;
         }
         .scale-under { background: #90caf9; flex: 16; }
         .scale-normal { background: #a5d6a7; flex: 16; }
         .scale-over { background: #ffcc80; flex: 6; }
         .scale-obese { background: #ef9a9a; flex: 12; }
+        .scale-marker {
+            position: absolute;
+            top: -8px;
+            width: 4px;
+            height: 36px;
+            background: #222;
+            border-radius: 2px;
+            display: none;
+        }
+        .scale-marker::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid #222;
+        }
+        .scale-labels {
+            display: flex;
+            margin-top: 6px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .scale-labels span {
+            text-align: center;
+        }
         @media (max-width: 768px) {
             header h1 { font-size: 1.2rem; }
             .header-btns { right: 10px; gap: 6px; }
@@ -327,11 +358,20 @@
             <div class="bmi-number" id="bmiNum">--</div>
             <div class="bmi-status" id="bmiStatus">--</div>
 
-            <div class="bmi-scale">
-                <div class="scale-under"></div>
-                <div class="scale-normal"></div>
-                <div class="scale-over"></div>
-                <div class="scale-obese"></div>
+            <div class="bmi-scale-wrap">
+                <div class="scale-marker" id="scaleMarker"></div>
+                <div class="bmi-scale">
+                    <div class="scale-under"></div>
+                    <div class="scale-normal"></div>
+                    <div class="scale-over"></div>
+                    <div class="scale-obese"></div>
+                </div>
+                <div class="scale-labels">
+                    <span style="flex: 16">&lt;18.5</span>
+                    <span style="flex: 16">18.5~24</span>
+                    <span style="flex: 6">24~28</span>
+                    <span style="flex: 12">&gt;28</span>
+                </div>
             </div>
 
             <div class="result-row">
@@ -499,6 +539,13 @@
             const statusEl = document.getElementById('bmiStatus');
             statusEl.textContent = status;
             statusEl.className = 'bmi-status ' + statusClass;
+
+            // 移动标尺指示器
+            let pct = ((bmi - 15) / 20) * 100;
+            pct = Math.max(0, Math.min(100, pct));
+            const marker = document.getElementById('scaleMarker');
+            marker.style.left = pct + '%';
+            marker.style.display = 'block';
 
             const idealRounded = idealWeight.toFixed(1);
             document.getElementById('idealWeight').textContent = currentUnit === 'kg' ? idealRounded + ' kg' : (idealRounded * 2.2046).toFixed(1) + ' lb';
