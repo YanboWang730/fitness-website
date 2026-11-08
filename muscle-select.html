@@ -120,30 +120,99 @@
         }
         .container {
             width: 100%;
-            height: calc(100vh - 112px);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
             position: relative;
         }
-        #canvas-wrap {
+        .image-wrap {
+            position: relative;
             width: 100%;
-            height: 100%;
+            max-width: 500px;
+            margin: 0 auto;
         }
-        .tip {
+        .image-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+        /* 热区样式 */
+        .hotspot {
             position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hotspot:hover {
+            background: rgba(255, 107, 53, 0.4);
+            transform: scale(1.1);
+        }
+        .hotspot .label {
+            position: absolute;
+            white-space: nowrap;
             background: var(--card-bg);
             color: var(--text);
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            white-space: nowrap;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
             box-shadow: var(--card-shadow);
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+        .hotspot:hover .label {
+            opacity: 1;
+        }
+        /* 各个热区位置（按百分比定位） */
+        .hs-chest { top: 32%; left: 50%; width: 80px; height: 50px; transform: translateX(-50%); }
+        .hs-chest .label { bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 8px; }
+        .hs-back { top: 30%; left: 50%; width: 80px; height: 60px; transform: translateX(-50%); }
+        .hs-back .label { bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 8px; }
+        .hs-shoulder { top: 26%; left: 22%; width: 45px; height: 45px; }
+        .hs-shoulder .label { top: 50%; right: 100%; transform: translateY(-50%); margin-right: 8px; }
+        .hs-arm { top: 38%; left: 12%; width: 40px; height: 70px; }
+        .hs-arm .label { top: 50%; right: 100%; transform: translateY(-50%); margin-right: 8px; }
+        .hs-leg { top: 60%; left: 35%; width: 45px; height: 90px; }
+        .hs-leg .label { top: 100%; left: 50%; transform: translateX(-50%); margin-top: 8px; }
+        .hs-core { top: 48%; left: 50%; width: 50px; height: 60px; transform: translateX(-50%); }
+        .hs-core .label { bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 8px; }
+
+        .view-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .view-btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            background: var(--card-bg);
+            color: var(--text);
+            box-shadow: var(--card-shadow);
+        }
+        .view-btn.active {
+            background: var(--accent);
+            color: white;
+        }
+        .tip {
+            text-align: center;
+            margin-top: 16px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
         @media (max-width: 768px) {
             header h1 { font-size: 1.2rem; }
             .header-btns { right: 10px; gap: 6px; }
-            .tip { font-size: 0.75rem; padding: 6px 12px; }
+            .container { padding: 10px; }
+            .hotspot .label { font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -161,22 +230,47 @@
         <a href="muscle-select.html">💪 <span class="zh">肌群选择</span> <span class="en en-text">Muscle Select</span></a>
         <a href="about.html">ℹ️ <span class="zh">关于</span> <span class="en en-text">About</span></a>
     </nav>
+
     <div class="container">
-        <div id="canvas-wrap"></div>
+        <div class="view-toggle">
+            <button class="view-btn active" id="btnAnterior" onclick="switchView('anterior')">
+                <span class="zh">正面</span><span class="en">Front</span>
+            </button>
+            <button class="view-btn" id="btnPosterior" onclick="switchView('posterior')">
+                <span class="zh">背面</span><span class="en">Back</span>
+            </button>
+        </div>
+
+        <div class="image-wrap">
+            <img id="muscleImg" src="images/muscle-anterior.jpg" alt="Muscle Anatomy">
+
+            <!-- 正面热区 -->
+            <div class="hotspot hs-chest" onclick="location.href='chest.html'">
+                <span class="label"><span class="zh">胸部</span> <span class="en">Chest</span></span>
+            </div>
+            <div class="hotspot hs-shoulder" onclick="location.href='shoulder.html'">
+                <span class="label"><span class="zh">肩部</span> <span class="en">Shoulder</span></span>
+            </div>
+            <div class="hotspot hs-arm" onclick="location.href='arms.html'">
+                <span class="label"><span class="zh">手臂</span> <span class="en">Arms</span></span>
+            </div>
+            <div class="hotspot hs-core" onclick="location.href='core.html'">
+                <span class="label"><span class="zh">核心</span> <span class="en">Core</span></span>
+            </div>
+            <div class="hotspot hs-leg" onclick="location.href='legs.html'">
+                <span class="label"><span class="zh">腿部</span> <span class="en">Legs</span></span>
+            </div>
+            <div class="hotspot hs-back" onclick="location.href='back.html'" style="display:none">
+                <span class="label"><span class="zh">背部</span> <span class="en">Back</span></span>
+            </div>
+        </div>
+
         <div class="tip">
-            <span class="zh">🖱️ 拖拽旋转 · 滚轮缩放 · 点击橙色胸肌进入胸部训练</span>
-            <span class="en">🖱️ Drag to rotate · Scroll to zoom · Click orange chest for chest training</span>
+            <span class="zh">🖱️ 点击高亮的肌肉区域进入对应训练动作页面</span>
+            <span class="en">🖱️ Click on a muscle group to view its exercises</span>
         </div>
     </div>
 
-    <script type="importmap">
-    {
-        "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-        }
-    }
-    </script>
     <script>
         // ========== 主题 & 语言 全局逻辑 ==========
         const html = document.documentElement;
@@ -222,164 +316,38 @@
         }
         initTheme();
         initLang();
-    </script>
 
-    <script type="module">
-        import * as THREE from 'three';
-        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
-        // ========== Three.js 3D 人体模型 ==========
-        const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xf0f0f0);
-
-        const container = document.getElementById('canvas-wrap');
-        const w = container.clientWidth;
-        const h = container.clientHeight;
-
-        const camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 100);
-        camera.position.set(0, 1.2, 4);
-
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(w, h);
-        container.appendChild(renderer.domElement);
-
-        const controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.08;
-        controls.minDistance = 1.5;
-        controls.maxDistance = 8;
-        controls.target.set(0, 1, 0);
-
-        // 灯光
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-        scene.add(ambientLight);
-        const dirLight = new THREE.DirectionalLight(0xffffff, 0.9);
-        dirLight.position.set(3, 5, 5);
-        scene.add(dirLight);
-        const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.4);
-        dirLight2.position.set(-3, 3, -3);
-        scene.add(dirLight2);
-
-        // 皮肤材质
-        const skinMat = new THREE.MeshStandardMaterial({
-            color: 0xd4a76a,
-            roughness: 0.8,
-            metalness: 0.1
-        });
-
-        // 人体组
-        const human = new THREE.Group();
-
-        // 躯干（胶囊体）
-        const torsoGeo = new THREE.CapsuleGeometry(0.22, 0.5, 8, 16);
-        const torso = new THREE.Mesh(torsoGeo, skinMat);
-        torso.position.y = 1.1;
-        human.add(torso);
-
-        // 头
-        const headGeo = new THREE.SphereGeometry(0.12, 16, 12);
-        const head = new THREE.Mesh(headGeo, skinMat);
-        head.position.y = 1.65;
-        human.add(head);
-
-        // 左上臂
-        const armGeo = new THREE.CapsuleGeometry(0.06, 0.3, 6, 10);
-        const leftUpperArm = new THREE.Mesh(armGeo, skinMat);
-        leftUpperArm.position.set(-0.28, 1.25, 0);
-        leftUpperArm.rotation.z = 0.3;
-        human.add(leftUpperArm);
-
-        // 右上臂
-        const rightUpperArm = new THREE.Mesh(armGeo, skinMat);
-        rightUpperArm.position.set(0.28, 1.25, 0);
-        rightUpperArm.rotation.z = -0.3;
-        human.add(rightUpperArm);
-
-        // 左前臂
-        const leftForeArm = new THREE.Mesh(armGeo, skinMat);
-        leftForeArm.position.set(-0.38, 0.9, 0);
-        leftForeArm.rotation.z = 0.1;
-        human.add(leftForeArm);
-
-        // 右前臂
-        const rightForeArm = new THREE.Mesh(armGeo, skinMat);
-        rightForeArm.position.set(0.38, 0.9, 0);
-        rightForeArm.rotation.z = -0.1;
-        human.add(rightForeArm);
-
-        // 左大腿
-        const legGeo = new THREE.CapsuleGeometry(0.08, 0.4, 6, 10);
-        const leftThigh = new THREE.Mesh(legGeo, skinMat);
-        leftThigh.position.set(-0.12, 0.45, 0);
-        human.add(leftThigh);
-
-        // 右大腿
-        const rightThigh = new THREE.Mesh(legGeo, skinMat);
-        rightThigh.position.set(0.12, 0.45, 0);
-        human.add(rightThigh);
-
-        // 左小腿
-        const leftShin = new THREE.Mesh(legGeo, skinMat);
-        leftShin.position.set(-0.12, 0.05, 0);
-        human.add(leftShin);
-
-        // 右小腿
-        const rightShin = new THREE.Mesh(legGeo, skinMat);
-        rightShin.position.set(0.12, 0.05, 0);
-        human.add(rightShin);
-
-        scene.add(human);
-
-        // 胸肌点击热区（橙色半透明）
-        const chestGeo = new THREE.SphereGeometry(0.12, 16, 12);
-        const chestMat = new THREE.MeshBasicMaterial({
-            color: 0xff6b35,
-            transparent: true,
-            opacity: 0.6
-        });
-        const chestMesh = new THREE.Mesh(chestGeo, chestMat);
-        chestMesh.position.set(0, 1.2, 0.22);
-        chestMesh.userData.link = "chest.html";
-        scene.add(chestMesh);
-
-        // 点击检测
-        const raycaster = new THREE.Raycaster();
-        const pointer = new THREE.Vector2();
-        renderer.domElement.addEventListener('click', (e) => {
-            const rect = renderer.domElement.getBoundingClientRect();
-            pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-            pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-            raycaster.setFromCamera(pointer, camera);
-            const intersects = raycaster.intersectObjects([chestMesh]);
-            if (intersects.length > 0) {
-                window.location.href = intersects[0].object.userData.link;
+        // 正面/背面切换
+        function switchView(view) {
+            const btnA = document.getElementById('btnAnterior');
+            const btnP = document.getElementById('btnPosterior');
+            const img = document.getElementById('muscleImg');
+            if (view === 'anterior') {
+                btnA.classList.add('active');
+                btnP.classList.remove('active');
+                img.src = 'images/muscle-anterior.jpg';
+                // 正面显示胸、肩、手臂、核心、腿
+                document.querySelector('.hs-chest').style.display = 'flex';
+                document.querySelector('.hs-shoulder').style.display = 'flex';
+                document.querySelector('.hs-arm').style.display = 'flex';
+                document.querySelector('.hs-core').style.display = 'flex';
+                document.querySelector('.hs-leg').style.display = 'flex';
+                document.querySelector('.hs-back').style.display = 'none';
+            } else {
+                btnP.classList.add('active');
+                btnA.classList.remove('active');
+                // 背面暂时用同一张图镜像，后面可以换真正的背面图
+                img.src = 'images/muscle-anterior.jpg';
+                img.style.transform = 'scaleX(-1)';
+                // 背面显示背、肩、手臂、腿
+                document.querySelector('.hs-chest').style.display = 'none';
+                document.querySelector('.hs-shoulder').style.display = 'flex';
+                document.querySelector('.hs-arm').style.display = 'flex';
+                document.querySelector('.hs-core').style.display = 'none';
+                document.querySelector('.hs-leg').style.display = 'flex';
+                document.querySelector('.hs-back').style.display = 'flex';
             }
-        });
-
-        // 悬停效果
-        renderer.domElement.addEventListener('mousemove', (e) => {
-            const rect = renderer.domElement.getBoundingClientRect();
-            pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-            pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-            raycaster.setFromCamera(pointer, camera);
-            const intersects = raycaster.intersectObjects([chestMesh]);
-            renderer.domElement.style.cursor = intersects.length > 0 ? 'pointer' : 'grab';
-        });
-
-        function animate() {
-            requestAnimationFrame(animate);
-            controls.update();
-            renderer.render(scene, camera);
         }
-        animate();
-
-        window.addEventListener('resize', () => {
-            const w2 = container.clientWidth;
-            const h2 = container.clientHeight;
-            camera.aspect = w2 / h2;
-            camera.updateProjectionMatrix();
-            renderer.setSize(w2, h2);
-        });
     </script>
 </body>
 </html>
