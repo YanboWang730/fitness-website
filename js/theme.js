@@ -1,4 +1,4 @@
-// 主题初始化：优先读 localStorage，否则跟随系统
+
 (function initTheme(){
     const saved = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -6,7 +6,7 @@
     document.documentElement.setAttribute('data-theme', theme);
 })();
 
-// 页面加载后更新按钮图标
+
 document.addEventListener('DOMContentLoaded', function(){
     updateThemeIcon();
 });
