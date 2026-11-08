@@ -68,11 +68,15 @@
         header h1 {
             font-size: 1.5rem;
         }
-        .theme-toggle {
+        .header-btns {
             position: absolute;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .theme-toggle {
             background: transparent;
             border: 2px solid #666;
             color: var(--header-text);
@@ -83,6 +87,22 @@
         }
         .theme-toggle:hover {
             border-color: var(--accent);
+        }
+        /* 语言模式 */
+        html:not([data-lang="en"]) .en {
+            display: none;
+        }
+        html[data-lang="en"] .zh {
+            display: none;
+        }
+        html[data-lang="en"] .en-text,
+        html[data-lang="en"] .en-name {
+            font-size: 1rem;
+            opacity: 1;
+        }
+        html[data-lang="en"] header h1 small {
+            font-size: 1.1rem;
+            opacity: 0.75;
         }
         header h1 small {
             font-size: 1rem;
@@ -285,58 +305,58 @@
     <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
 </header>
 <nav class="top-nav">
-    <a href="index.html">🏠 首页 <span class="en-text">Home</span></a>
-        <a href="about.html">ℹ️ 关于 <span class="en-text">About</span></a>
+    <a href="index.html"><span class="zh">🏠 首页</span> <span class="en en-text">Home</span></a>
+        <a href="about.html"><span class="zh">ℹ️ 关于</span> <span class="en en-text">About</span></a>
 </nav>
 <div class="container">
     <aside>
-        <h3 style="border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem;">肌群选择 <small>Muscle Groups</small></h3>
+        <h3 style="border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem;"><span class="zh">肌群选择</span> <small class="en">Muscle Groups</small></h3>
         <ul>
-            <li><a href="chest.html">胸部 <span class="en-text">Chest</span></a></li>
-            <li><a href="back.html">背部 <span class="en-text">Back</span></a></li>
-            <li><a href="shoulder.html">肩部 <span class="en-text">Shoulder</span></a></li>
-            <li><a href="legs.html">腿部 <span class="en-text">Legs</span></a></li>
-            <li><a href="core.html">核心 <span class="en-text">Core</span></a></li>
-            <li><a href="arms.html" class="active">手臂 <span class="en-text">Arms</span></a></li>
+            <li><a href="chest.html"><span class="zh">胸部</span> <span class="en en-text">Chest</span></a></li>
+            <li><a href="back.html"><span class="zh">背部</span> <span class="en en-text">Back</span></a></li>
+            <li><a href="shoulder.html"><span class="zh">肩部</span> <span class="en en-text">Shoulder</span></a></li>
+            <li><a href="legs.html"><span class="zh">腿部</span> <span class="en en-text">Legs</span></a></li>
+            <li><a href="core.html"><span class="zh">核心</span> <span class="en en-text">Core</span></a></li>
+            <li><a href="arms.html" class="active"><span class="zh">手臂</span> <span class="en en-text">Arms</span></a></li>
         </ul>
     </aside>
     <main>
-        <h2>手臂训练动作 <span class="en-text">Arms Exercises</span></h2>
+        <h2><span class="zh">手臂训练动作</span> <span class="en en-text">Arms Exercises</span></h2>
 
         <section class="exercise-card" data-title="绳索下压 | Rope Tricep Pushdown" data-target="目标肌群：肱三头肌 | Target: Triceps Brachii" data-cn="动作说明：龙门架装上绳索把手，大臂贴紧身体不动，小臂向下压，顶峰收紧三头，缓慢放回。" data-en="Instruction: Attach rope to cable. Keep upper arms tight to torso, push forearm down, squeeze triceps and return slowly.">
-            <h3>绳索下压 <span class="en-name">Rope Tricep Pushdown</span></h3>
+            <h3><span class="zh">绳索下压</span> <span class="en en-name">Rope Tricep Pushdown</span></h3>
             <img src="images/cable-tricep-pushdown.png" alt="绳索下压 Cable Tricep Pushdown">
-            <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+            <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
         </section>
 
         <section class="exercise-card" data-title="单手绳索臂屈伸 | Single Arm Cable Tricep Extension" data-target="目标肌群：肱三头肌 | Target: Triceps Brachii" data-cn="动作说明：单手握住高位绳索，手肘朝上固定，小臂向前伸展，感受单侧三头充分拉伸收缩。" data-en="Instruction: Grip high cable with one hand, elbow pointing up. Extend forearm forward to stretch and contract triceps.">
-            <h3>单手绳索臂屈伸 <span class="en-name">Single Arm Cable Tricep Extension</span></h3>
+            <h3><span class="zh">单手绳索臂屈伸</span> <span class="en en-name">Single Arm Cable Tricep Extension</span></h3>
             <img src="images/single-arm-cable-tricep-extension.png" alt="单手绳索臂屈伸 Single Arm Cable Tricep Extension">
-            <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+            <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
         </section>
 
         <section class="exercise-card" data-title="仰卧杠铃臂屈伸 | Lying Barbell Tricep Extension" data-target="目标肌群：肱三头肌长头 | Target: Long head of Triceps" data-cn="动作说明：平躺卧推凳，杠铃在头顶上方，只活动肘关节，缓慢向额头下放再伸直推起。" data-en="Instruction: Lie flat on bench, bar over head. Only bend elbow, lower bar toward forehead then extend back up.">
-            <h3>仰卧杠铃臂屈伸 <span class="en-name">Lying Barbell Tricep Extension</span></h3>
+            <h3><span class="zh">仰卧杠铃臂屈伸</span> <span class="en en-name">Lying Barbell Tricep Extension</span></h3>
             <img src="images/barbell-lying-tricep-extension.png" alt="仰卧杠铃臂屈伸 Barbell Lying Tricep Extension">
-            <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+            <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
         </section>
 
         <section class="exercise-card" data-title="锤式弯举 | Hammer Curl" data-target="目标肌群：肱肌、肱桡肌 | Target: Brachialis & Brachioradialis" data-cn="动作说明：双手握哑铃，掌心相对，大臂贴紧身体，向上弯举，顶峰停顿，匀速下放。" data-en="Instruction: Hold dumbbells with palms facing each other. Keep upper arm fixed, curl up, squeeze and lower slowly.">
-            <h3>锤式弯举 <span class="en-name">Hammer Curl</span></h3>
+            <h3><span class="zh">锤式弯举</span> <span class="en en-name">Hammer Curl</span></h3>
             <img src="images/dumbbell-hammer-curl.png" alt="锤式弯举 Dumbbell Hammer Curl">
-            <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+            <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
         </section>
 
         <section class="exercise-card" data-title="牧师凳弯举 | Preacher Curl="目标肌群：肱二头肌 | Target: Biceps Brachii" data-cn="动作说明：手臂搭在牧师凳斜面上，大臂固定，弯举哑铃/杠铃，全程控制，减少借力。" data-en="Instruction: Rest arms on preacher pad, fix upper arm. Curl weight upward with controlled movement, no swinging.">
-            <h3>牧师凳弯举 <span class="en-name">Preacher Curl</span></h3>
+            <h3><span class="zh">牧师凳弯举</span> <span class="en en-name">Preacher Curl</span></h3>
             <img src="images/preacher-curl.png" alt="牧师凳弯举 Preacher Curl">
-            <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+            <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
         </section>
 
         <section class="exercise-card" data-title="哑铃上斜弯举 | Incline Dumbbell Curl" data-target="目标肌群：肱二头肌 | Target: Biceps Brachii" data-cn="动作说明：背靠上斜凳坐稳，大臂贴紧凳面固定，手持哑铃缓慢向上弯举，拉长二头发力行程，孤立刺激肱二头肌。" data-en="Instruction: Sit back on an incline bench, fix upper arms against the bench. Curl dumbbells slowly, lengthen biceps movement range for isolated stimulation.">
-            <h3>坐姿绳索二头弯举 <span class="en-name">Incline Dumbbell Curl</span></h3>
+            <h3><span class="zh">坐姿绳索二头弯举</span> <span class="en en-name">Incline Dumbbell Curl</span></h3>
             <img src="images/seated-incline-curl.png" alt="坐姿上斜弯举 Seated Incline Curl">
-            <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+            <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
         </section>
     </main>
 </div>
@@ -348,6 +368,25 @@
 
 
     <script src="js/theme.js"></script>
+<script>
+(function initLang(){
+    const saved = localStorage.getItem('lang');
+    if(saved === 'en'){
+        document.documentElement.setAttribute('data-lang', 'en');
+        document.getElementById('langBtn').textContent = '中';
+    } else {
+        document.documentElement.setAttribute('data-lang', 'zh');
+        document.getElementById('langBtn').textContent = 'EN';
+    }
+})();
+function toggleLang(){
+    const current = document.documentElement.getAttribute('data-lang');
+    const next = current === 'en' ? 'zh' : 'en';
+    document.documentElement.setAttribute('data-lang', next);
+    localStorage.setItem('lang', next);
+    document.getElementById('langBtn').textContent = next === 'en' ? '中' : 'EN';
+}
+</script>
     <div class="modal-overlay" id="modal">
     <div class="modal-box">
         <span class="modal-close">&times;</span>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -307,62 +307,65 @@
 </head>
 <body>
     <header>
-        <h1>健身训练指南 <small>Fitness Training Guide</small></h1>
-        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        <h1><span class="zh">健身训练指南</span> <small class="en">Fitness Training Guide</small></h1>
+        <div class="header-btns">
+            <button class="theme-toggle" onclick="toggleLang()" id="langBtn">EN</button>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        </div>
     </header>
     <nav class="top-nav">
-        <a href="index.html">🏠 首页 <span class="en-text">Home</span></a>
-        <a href="about.html">ℹ️ 关于 <span class="en-text">About</span></a>
+        <a href="index.html">🏠 <span class="zh">首页</span> <span class="en en-text">Home</span></a>
+        <a href="about.html">ℹ️ <span class="zh">关于</span> <span class="en en-text">About</span></a>
     </nav>
     <div class="container">
         <aside>
-            <h3 style="border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem;">肌群选择 <small>Muscle Groups</small></h3>
+            <h3 style="border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem;"><span class="zh">肌群选择</span> <small class="en">Muscle Groups</small></h3>
             <ul>
-                <li><a href="chest.html" class="active">胸部 <span class="en-text">Chest</span></a></li>
-                <li><a href="back.html">背部 <span class="en-text">Back</span></a></li>
-                <li><a href="shoulder.html">肩部 <span class="en-text">Shoulder</span></a></li>
-                <li><a href="legs.html">腿部 <span class="en-text">Legs</span></a></li>
-                <li><a href="core.html">核心 <span class="en-text">Core</span></a></li>
-                <li><a href="arms.html">手臂 <span class="en-text">Arms</span></a></li>
+                <li><a href="chest.html" class="active"><span class="zh">胸部</span> <span class="en en-text">Chest</span></a></li>
+                <li><a href="back.html"><span class="zh">背部</span> <span class="en en-text">Back</span></a></li>
+                <li><a href="shoulder.html"><span class="zh">肩部</span> <span class="en en-text">Shoulder</span></a></li>
+                <li><a href="legs.html"><span class="zh">腿部</span> <span class="en en-text">Legs</span></a></li>
+                <li><a href="core.html"><span class="zh">核心</span> <span class="en en-text">Core</span></a></li>
+                <li><a href="arms.html"><span class="zh">手臂</span> <span class="en en-text">Arms</span></a></li>
             </ul>
         </aside>
         <main>
-            <h2>胸部训练动作 <span class="en-text">Chest Exercises</span></h2>
+            <h2><span class="zh">胸部训练动作</span> <span class="en en-text">Chest Exercises</span></h2>
 
             <section class="exercise-card" data-title="平板杠铃卧推 | Barbell Flat Bench Press" data-target="目标肌群：整体胸部（全胸） | Target: Entire Chest" data-cn="动作说明：平躺卧推凳，双脚踩实地面，握杠铃略宽于肩，缓慢下放至中下胸位置，发力推起，不要锁死肘关节。" data-en="Instruction: Lie flat on bench, feet firmly on ground. Grip bar slightly wider than shoulder. Lower slowly to mid-lower chest, push up without locking elbows.">
-                <h3>平板杠铃卧推 <span class="en-name">Barbell Flat Bench Press</span></h3>
+                <h3><span class="zh">平板杠铃卧推</span> <span class="en en-name">Barbell Flat Bench Press</span></h3>
                 <img src="images/flat-barbell-bench-press.png" alt="平板杠铃卧推 Flat Barbell Bench Press">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="上斜杠铃卧推 | Barbell Incline Bench Press" data-target="目标肌群：上胸 | Target: Upper Chest" data-cn="动作说明：凳面30°左右倾斜，杠铃下放到上胸锁骨下方，感受上胸发力，控制下放速度。" data-en="Instruction: Bench incline ~30°. Lower bar to upper chest below collarbone, control speed and focus on upper chest contraction.">
-                <h3>上斜杠铃卧推 <span class="en-name">Barbell Incline Bench Press</span></h3>
+                <h3><span class="zh">上斜杠铃卧推</span> <span class="en en-name">Barbell Incline Bench Press</span></h3>
                 <img src="images/incline-barbell-bench-press.png" alt="上斜杠铃卧推 Barbell Incline Bench Press">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="低位绳索夹胸 | Low Cable Crossover" data-target="目标肌群：胸外侧沿 | Target: Outer Chest" data-cn="动作说明：龙门架低位把手，身体微微前倾，手臂微屈，从上向内下方夹拢，顶峰收缩停顿一下。" data-en="Instruction: Use high pulleys, lean slightly forward, keep elbows soft. Clamp inward and downward from above, squeeze chest at peak contraction.">
-                <h3>高位绳索夹胸 <span class="en-name">Low Cable Crossover</span></h3>
+                <h3><span class="zh">高位绳索夹胸</span> <span class="en en-name">Low Cable Crossover</span></h3>
                 <img src="images/high-cable-crossover.png" alt="高位绳索夹胸 High Cable Crossover">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="哑铃推胸 | Dumbbell Bench Press" data-target="目标肌群：胸中缝、全胸 | Target: Chest Midline, Entire Chest" data-cn="动作说明：平板凳，哑铃下放幅度比杠铃更大，两侧向中间靠拢，强化胸部中间位置。" data-en="Instruction: On flat bench, dumbbells have a larger range of motion, squeeze inward to build chest separation.">
-                <h3>哑铃推胸 <span class="en-name">Dumbbell Bench Press</span></h3>
+                <h3><span class="zh">哑铃推胸</span> <span class="en en-name">Dumbbell Bench Press</span></h3>
                 <img src="images/dumbbell-bench-press.png" alt="哑铃推胸 Dumbbell Bench Press">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="坐姿推胸器械 | Seated Chest Press Machine" data-target="目标肌群：中胸 | Target: Mid Chest" data-cn="动作说明：背部贴紧靠背，把手对齐胸部高度，向前推出，匀速放回，稳定性高，适合找发力感。" data-en="Instruction: Keep back pressed against pad, handles aligned with chest. Push forward and return slowly, great for beginners.">
-                <h3>坐姿器械推胸 <span class="en-name">Seated Chest Press Machine</span></h3>
+                <h3><span class="zh">坐姿器械推胸</span> <span class="en en-name">Seated Chest Press Machine</span></h3>
                 <img src="images/seated-chest-press.png" alt="坐姿推胸 Seated Chest Press">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="双杠臂屈伸 | Dips" data-target="目标肌群：下胸、三头肌 | Target: Lower Chest, Triceps" data-cn="动作说明：身体微微前倾，重心靠前，缓慢下放，用下胸发力撑起；身体直立会更多练三头。" data-en="Instruction: Lean forward to emphasize lower chest. Keep controlled descent. Upright posture shifts focus to triceps.">
-                <h3>双杠臂屈伸 <span class="en-name">Dips</span></h3>
+                <h3><span class="zh">双杠臂屈伸</span> <span class="en en-name">Dips</span></h3>
                 <img src="images/chest-dip.png" alt="双杠臂屈伸（练胸） Chest-focused Dip">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
         </main>
     </div>
@@ -372,6 +375,25 @@
     </footer>
 
     <script src="js/theme.js"></script>
+<script>
+(function initLang(){
+    const saved = localStorage.getItem('lang');
+    if(saved === 'en'){
+        document.documentElement.setAttribute('data-lang', 'en');
+        document.getElementById('langBtn').textContent = '中';
+    } else {
+        document.documentElement.setAttribute('data-lang', 'zh');
+        document.getElementById('langBtn').textContent = 'EN';
+    }
+})();
+function toggleLang(){
+    const current = document.documentElement.getAttribute('data-lang');
+    const next = current === 'en' ? 'zh' : 'en';
+    document.documentElement.setAttribute('data-lang', next);
+    localStorage.setItem('lang', next);
+    document.getElementById('langBtn').textContent = next === 'en' ? '中' : 'EN';
+}
+</script>
     <div class="modal-overlay" id="modal">
         <div class="modal-box">
             <span class="modal-close">&times;</span>

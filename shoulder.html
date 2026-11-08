@@ -68,11 +68,15 @@
         header h1 {
             font-size: 1.5rem;
         }
-        .theme-toggle {
+        .header-btns {
             position: absolute;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .theme-toggle {
             background: transparent;
             border: 2px solid #666;
             color: var(--header-text);
@@ -83,6 +87,22 @@
         }
         .theme-toggle:hover {
             border-color: var(--accent);
+        }
+        /* 语言模式 */
+        html:not([data-lang="en"]) .en {
+            display: none;
+        }
+        html[data-lang="en"] .zh {
+            display: none;
+        }
+        html[data-lang="en"] .en-text,
+        html[data-lang="en"] .en-name {
+            font-size: 1rem;
+            opacity: 1;
+        }
+        html[data-lang="en"] header h1 small {
+            font-size: 1.1rem;
+            opacity: 0.75;
         }
         header h1 small {
             font-size: 1rem;
@@ -281,62 +301,65 @@
 </head>
 <body>
     <header>
-        <h1>健身训练指南 <small>Fitness Training Guide</small></h1>
-        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        <h1><span class="zh">健身训练指南</span> <small class="en">Fitness Training Guide</small></h1>
+        <div class="header-btns">
+            <button class="theme-toggle" onclick="toggleLang()" id="langBtn">EN</button>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        </div>
     </header>
     <nav class="top-nav">
-        <a href="index.html">🏠 首页 <span class="en-text">Home</span></a>
-        <a href="about.html">ℹ️ 关于 <span class="en-text">About</span></a>
+        <a href="index.html">🏠 <span class="zh">首页</span> <span class="en en-text">Home</span></a>
+        <a href="about.html">ℹ️ <span class="zh">关于</span> <span class="en en-text">About</span></a>
     </nav>
     <div class="container">
         <aside>
-            <h3 style="border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem;">肌群选择 <small>Muscle Groups</small></h3>
+            <h3 style="border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem;"><span class="zh">肌群选择</span> <small class="en">Muscle Groups</small></h3>
             <ul>
-                <li><a href="chest.html">胸部 <span class="en-text">Chest</span></a></li>
-                <li><a href="back.html">背部 <span class="en-text">Back</span></a></li>
-                <li><a href="shoulder.html" class="active">肩部 <span class="en-text">Shoulder</span></a></li>
-                <li><a href="legs.html">腿部 <span class="en-text">Legs</span></a></li>
-                <li><a href="core.html">核心 <span class="en-text">Core</span></a></li>
-                <li><a href="arms.html">手臂 <span class="en-text">Arms</span></a></li>
+                <li><a href="chest.html"><span class="zh">胸部</span> <span class="en en-text">Chest</span></a></li>
+                <li><a href="back.html"><span class="zh">背部</span> <span class="en en-text">Back</span></a></li>
+                <li><a href="shoulder.html" class="active"><span class="zh">肩部</span> <span class="en en-text">Shoulder</span></a></li>
+                <li><a href="legs.html"><span class="zh">腿部</span> <span class="en en-text">Legs</span></a></li>
+                <li><a href="core.html"><span class="zh">核心</span> <span class="en en-text">Core</span></a></li>
+                <li><a href="arms.html"><span class="zh">手臂</span> <span class="en en-text">Arms</span></a></li>
             </ul>
         </aside>
         <main>
-            <h2>肩部训练动作 <span class="en-text">Shoulder Exercises</span></h2>
+            <h2><span class="zh">肩部训练动作</span> <span class="en en-text">Shoulder Exercises</span></h2>
 
             <section class="exercise-card" data-title="哑铃坐姿推肩 | Seated Dumbbell Shoulder Press" data-target="目标肌群：三角肌前束、中束（整体肩膀） | Target: Anterior & Medial Deltoids" data-cn="动作说明：坐在凳上，腰背贴实，哑铃举到耳朵两侧，掌心朝前，垂直向上推起，顶点不要锁死肘关节，缓慢下放。" data-en="Instruction: Sit upright, dumbbells at ear level. Press straight up, avoid locking elbows, lower with control.">
-                <h3>哑铃坐姿推肩 <span class="en-name">Seated Dumbbell Shoulder Press</span></h3>
+                <h3><span class="zh">哑铃坐姿推肩</span> <span class="en en-name">Seated Dumbbell Shoulder Press</span></h3>
                 <img src="images/seated-dumbbell-shoulder-press.png" alt="哑铃坐姿推肩 Seated Dumbbell Shoulder Press">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="哑铃前平举 | Dumbbell Front Raise" data-target="目标肌群：三角肌前束 | Target: Anterior Deltoids" data-cn="动作说明：站姿，手臂自然下垂，手肘微弯，哑铃向前抬到与肩平齐，顶峰稍停，匀速下放，不要甩动借力。" data-en="Instruction: Stand with slight elbow bend. Raise dumbbells forward to shoulder height, pause, lower slowly, no swinging.">
-                <h3>哑铃前平举 <span class="en-name">Dumbbell Front Raise</span></h3>
+                <h3><span class="zh">哑铃前平举</span> <span class="en en-name">Dumbbell Front Raise</span></h3>
                 <img src="images/dumbbell-front-raise.png" alt="哑铃前平举 Dumbbell Front Raise">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="哑铃俯身飞鸟 | Bent-Over Dumbbell Reverse Fly" data-target="目标肌群：三角肌后束、上背 | Target: Posterior Deltoids, Upper Back" data-cn="动作说明：髋部折叠俯身，背部平直，手臂微屈，向两侧打开哑铃，感受肩膀后侧收紧，缓慢还原。" data-en="Instruction: Hinge at hips, flat back, soft elbows. Open dumbbells outwards, squeeze rear shoulder, return slowly.">
-                <h3>哑铃俯身飞鸟 <span class="en-name">Bent-Over Dumbbell Reverse Fly</span></h3>
+                <h3><span class="zh">哑铃俯身飞鸟</span> <span class="en en-name">Bent-Over Dumbbell Reverse Fly</span></h3>
                 <img src="images/bent-over-dumbbell-reverse-fly.png" alt="哑铃俯身飞鸟 Bent-Over Dumbbell Reverse Fly">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="史密斯推肩 | Smith Machine Shoulder Press" data-target="目标肌群：三角肌前束、中束 | Target: Anterior & Medial Deltoids" data-cn="动作说明：座椅调好高度，杠铃落在锁骨上方，竖直向上推起，轨迹稳定，适合新手找肩部发力、控制重量。" data-en="Instruction: Adjust seat, bar at upper chest. Press vertically. Fixed path is friendly for beginners to master form.">
-                <h3>史密斯推肩 <span class="en-name">Smith Machine Shoulder Press</span></h3>
+                <h3><span class="zh">史密斯推肩</span> <span class="en en-name">Smith Machine Shoulder Press</span></h3>
                 <img src="images/smith-shoulder-press.png" alt="史密斯推肩 Smith Machine Shoulder Press">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="哑铃侧平举 | Dumbbell Lateral Raise" data-target="目标肌群：三角肌中束（加宽肩膀） | Target: Medial Deltoids (Shoulder width)" data-cn="动作说明：站姿，手肘保持微弯固定，哑铃向两侧抬至肩高，想象往远泼水，不要抬太高超过耳朵，慢放。" data-en="Instruction: Stand, keep elbows slightly bent. Raise dumbbells sideways to shoulder level, avoid lifting above ears.">
-                <h3>哑铃侧平举 <span class="en-name">Dumbbell Lateral Raise</span></h3>
+                <h3><span class="zh">哑铃侧平举</span> <span class="en en-name">Dumbbell Lateral Raise</span></h3>
                 <img src="images/dumbbell-lateral-raise.png" alt="哑铃侧平举 Dumbbell Lateral Raise">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="绳索面拉 | Cable Face Pull" data-target="目标肌群：三角肌后束、肩袖肌群、中下斜方肌 | Target: Posterior Delts, Rotator Cuff, Mid-lower Traps" data-cn="动作说明：高位绳索，拉绳索向额头/面部，手肘向外打开，肩胛骨后缩收紧，这个动作对改善圆肩很友好。" data-en="Instruction: High pulley. Pull rope toward forehead, flare elbows out, squeeze shoulder blades. Great for rounded shoulder posture.">
-                <h3>绳索面拉 <span class="en-name">Cable Face Pull</span></h3>
+                <h3><span class="zh">绳索面拉</span> <span class="en en-name">Cable Face Pull</span></h3>
                 <img src="images/cable-face-pull.png" alt="绳索面拉 Cable Face Pull">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
         </main>
     </div>
@@ -348,6 +371,25 @@
     
     
     <script src="js/theme.js"></script>
+<script>
+(function initLang(){
+    const saved = localStorage.getItem('lang');
+    if(saved === 'en'){
+        document.documentElement.setAttribute('data-lang', 'en');
+        document.getElementById('langBtn').textContent = '中';
+    } else {
+        document.documentElement.setAttribute('data-lang', 'zh');
+        document.getElementById('langBtn').textContent = 'EN';
+    }
+})();
+function toggleLang(){
+    const current = document.documentElement.getAttribute('data-lang');
+    const next = current === 'en' ? 'zh' : 'en';
+    document.documentElement.setAttribute('data-lang', next);
+    localStorage.setItem('lang', next);
+    document.getElementById('langBtn').textContent = next === 'en' ? '中' : 'EN';
+}
+</script>
     <div class="modal-overlay" id="modal">
         <div class="modal-box">
             <span class="modal-close">&times;</span>

@@ -68,11 +68,15 @@
         header h1 {
             font-size: 1.5rem;
         }
-        .theme-toggle {
+        .header-btns {
             position: absolute;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .theme-toggle {
             background: transparent;
             border: 2px solid #666;
             color: var(--header-text);
@@ -83,6 +87,22 @@
         }
         .theme-toggle:hover {
             border-color: var(--accent);
+        }
+        /* 语言模式 */
+        html:not([data-lang="en"]) .en {
+            display: none;
+        }
+        html[data-lang="en"] .zh {
+            display: none;
+        }
+        html[data-lang="en"] .en-text,
+        html[data-lang="en"] .en-name {
+            font-size: 1rem;
+            opacity: 1;
+        }
+        html[data-lang="en"] header h1 small {
+            font-size: 1.1rem;
+            opacity: 0.75;
         }
         header h1 small {
             font-size: 1rem;
@@ -281,50 +301,53 @@
 </head>
 <body>
     <header>
-        <h1>健身训练指南 <small>Fitness Training Guide</small></h1>
-        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        <h1><span class="zh">健身训练指南</span> <small class="en">Fitness Training Guide</small></h1>
+        <div class="header-btns">
+            <button class="theme-toggle" onclick="toggleLang()" id="langBtn">EN</button>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        </div>
     </header>
     <nav class="top-nav">
-        <a href="index.html">🏠 首页 <span class="en-text">Home</span></a>
-        <a href="about.html">ℹ️ 关于 <span class="en-text">About</span></a>
+        <a href="index.html">🏠 <span class="zh">首页</span> <span class="en en-text">Home</span></a>
+        <a href="about.html">ℹ️ <span class="zh">关于</span> <span class="en en-text">About</span></a>
     </nav>
     <div class="container">
         <aside>
-            <h3 style="border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem;">肌群选择 <small>Muscle Groups</small></h3>
+            <h3 style="border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem;"><span class="zh">肌群选择</span> <small class="en">Muscle Groups</small></h3>
             <ul>
-                <li><a href="chest.html">胸部 <span class="en-text">Chest</span></a></li>
-                <li><a href="back.html" class="active">背部 <span class="en-text">Back</span></a></li>
-                <li><a href="shoulder.html">肩部 <span class="en-text">Shoulder</span></a></li>
-                <li><a href="legs.html">腿部 <span class="en-text">Legs</span></a></li>
-                <li><a href="core.html">核心 <span class="en-text">Core</span></a></li>
-                <li><a href="arms.html">手臂 <span class="en-text">Arms</span></a></li>
+                <li><a href="chest.html"><span class="zh">胸部</span> <span class="en en-text">Chest</span></a></li>
+                <li><a href="back.html" class="active"><span class="zh">背部</span> <span class="en en-text">Back</span></a></li>
+                <li><a href="shoulder.html"><span class="zh">肩部</span> <span class="en en-text">Shoulder</span></a></li>
+                <li><a href="legs.html"><span class="zh">腿部</span> <span class="en en-text">Legs</span></a></li>
+                <li><a href="core.html"><span class="zh">核心</span> <span class="en en-text">Core</span></a></li>
+                <li><a href="arms.html"><span class="zh">手臂</span> <span class="en en-text">Arms</span></a></li>
             </ul>
         </aside>
         <main>
-            <h2>背部训练动作 <span class="en-text">Back Exercises</span></h2>
+            <h2><span class="zh">背部训练动作</span> <span class="en en-text">Back Exercises</span></h2>
 
             <section class="exercise-card" data-title="引体向上 | Pull-Up" data-target="目标肌群：背阔肌、大圆肌、肱二头肌、上背 | Target: Lats, Teres Major, Biceps, Upper Back" data-cn="动作说明：双手宽握单杠，挺胸沉肩，拉动身体向上直到下巴过杠，缓慢下放，全程不要耸肩。" data-en="Instruction: Wide grip, chest up, shoulders down. Pull until chin over bar, lower slowly, avoid shrugging shoulders.">
-                <h3>引体向上 <span class="en-name">Pull-Up</span></h3>
+                <h3><span class="zh">引体向上</span> <span class="en en-name">Pull-Up</span></h3>
                 <img src="images/pull-up.png" alt="引体向上 Pull-up">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="宽握高位下拉 | Wide-Grip Lat Pulldown" data-target="目标肌群：背阔肌外侧、大圆肌 | Target: Outer Lats, Teres Major" data-cn="动作说明：坐于器械，固定大腿，握杆略宽于肩，沉肩，把横杆拉至上胸位置，控制回放不要借力甩动。" data-en="Instruction: Sit and lock thighs, wide grip, pull bar to upper chest, control the return without swinging.">
-                <h3>宽握高位下拉 <span class="en-name">Wide-Grip Lat Pulldown</span></h3>
+                <h3><span class="zh">宽握高位下拉</span> <span class="en en-name">Wide-Grip Lat Pulldown</span></h3>
                 <img src="images/lat-pulldown.png" alt="高位下拉 Lat Pulldown">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="坐姿绳索划船 | Seated Cable Row" data-target="目标肌群：菱形肌、斜方肌中下束、中背、背阔中部 | Target: Rhomboids, Mid-Lower Traps, Mid-Back" data-cn="动作说明：脚踩踏板，屈膝，腰背挺直，把手柄拉向下腹部，肩胛骨向后收紧，缓慢放回。" data-en="Instruction: Feet on platform, flat back. Pull handle toward lower belly, squeeze shoulder blades together, return slowly.">
-                <h3>坐姿绳索划船 <span class="en-name">Seated Cable Row</span></h3>
+                <h3><span class="zh">坐姿绳索划船</span> <span class="en en-name">Seated Cable Row</span></h3>
                 <img src="images/seated-cable-row.png" alt="坐姿划船 Seated Cable Row">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
 
             <section class="exercise-card" data-title="直臂下压 | Straight Arm Pulldown" data-target="目标肌群：背阔肌下沿（孤立背阔） | Target: Lower Lats (Isolation)" data-cn="动作说明：微屈手肘固定角度，不要弯胳膊，用背阔发力把横杆向下压至大腿前侧，缓慢放回，重点感受背阔拉长收缩。" data-en="Instruction: Keep elbows slightly bent and fixed. Pull bar down with lats only, focus on stretch and contraction of latissimus dorsi.">
-                <h3>直臂下压 <span class="en-name">Straight Arm Pulldown</span></h3>
+                <h3><span class="zh">直臂下压</span> <span class="en en-name">Straight Arm Pulldown</span></h3>
                 <img src="images/straight-arm-pulldown.png" alt="直臂下压 Straight Arm Pulldown">
-                <p class="tip-text">点击图片查看详细动作步骤 <span class="en-text">Click image for instructions</span></p>
+                <p class="tip-text"><span class="zh">点击图片查看详细动作步骤</span> <span class="en en-text">Click image for instructions</span></p>
             </section>
         </main>
     </div>
@@ -336,6 +359,25 @@
     
     
     <script src="js/theme.js"></script>
+<script>
+(function initLang(){
+    const saved = localStorage.getItem('lang');
+    if(saved === 'en'){
+        document.documentElement.setAttribute('data-lang', 'en');
+        document.getElementById('langBtn').textContent = '中';
+    } else {
+        document.documentElement.setAttribute('data-lang', 'zh');
+        document.getElementById('langBtn').textContent = 'EN';
+    }
+})();
+function toggleLang(){
+    const current = document.documentElement.getAttribute('data-lang');
+    const next = current === 'en' ? 'zh' : 'en';
+    document.documentElement.setAttribute('data-lang', next);
+    localStorage.setItem('lang', next);
+    document.getElementById('langBtn').textContent = next === 'en' ? '中' : 'EN';
+}
+</script>
     <div class="modal-overlay" id="modal">
         <div class="modal-box">
             <span class="modal-close">&times;</span>

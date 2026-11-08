@@ -65,11 +65,15 @@
             opacity: 0.75;
             display:block;
         }
-        .theme-toggle {
+        .header-btns {
             position: absolute;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .theme-toggle {
             background: transparent;
             border: 2px solid #666;
             color: var(--header-text);
@@ -80,6 +84,21 @@
         }
         .theme-toggle:hover {
             border-color: var(--accent);
+        }
+        /* 语言模式 */
+        html:not([data-lang="en"]) .en {
+            display: none;
+        }
+        html[data-lang="en"] .zh {
+            display: none;
+        }
+        html[data-lang="en"] .en-text {
+            font-size: 1rem;
+            opacity: 1;
+        }
+        html[data-lang="en"] header h1 small {
+            font-size: 1.1rem;
+            opacity: 0.75;
         }
         .top-nav{
             background: var(--nav-bg);
@@ -150,35 +169,57 @@
 </head>
 <body>
     <header>
-        <h1>健身训练指南 <small>Fitness Training Guide</small></h1>
-        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        <h1><span class="zh">健身训练指南</span> <small class="en">Fitness Training Guide</small></h1>
+        <div class="header-btns">
+            <button class="theme-toggle" onclick="toggleLang()" id="langBtn">EN</button>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        </div>
     </header>
     <nav class="top-nav">
-        <a href="index.html">🏠 首页 <span class="en-text">Home</span></a>
-        <a href="chest.html">💪 肌群训练 <span class="en-text">Training</span></a>
-        <a href="about.html">ℹ️ 关于 <span class="en-text">About</span></a>
+        <a href="index.html">🏠 <span class="zh">首页</span> <span class="en en-text">Home</span></a>
+        <a href="chest.html">💪 <span class="zh">肌群训练</span> <span class="en en-text">Training</span></a>
+        <a href="about.html">ℹ️ <span class="zh">关于</span> <span class="en en-text">About</span></a>
     </nav>
     <div class="main-content">
-        <h2>关于这个网站 About This Website</h2>
-        <p>这是一个专为健身初学者打造的训练指南网站，覆盖六大核心肌群的基础动作指导。每个动作都配有演示图片，点击图片即可查看详细动作步骤、发力要点和常见错误提醒。</p>
-        <p>This is a training guide website built for fitness beginners, covering basic exercises for 6 major muscle groups. Each exercise comes with a demo image; click the image to view detailed steps, key form tips and common mistakes to avoid.</p>
+        <h2><span class="zh">关于这个网站</span> <span class="en">About This Website</span></h2>
+        <p class="zh">这是一个专为健身初学者打造的训练指南网站，覆盖六大核心肌群的基础动作指导。每个动作都配有演示图片，点击图片即可查看详细动作步骤、发力要点和常见错误提醒。</p>
+        <p class="en">This is a training guide website built for fitness beginners, covering basic exercises for 6 major muscle groups. Each exercise comes with a demo image; click the image to view detailed steps, key form tips and common mistakes to avoid.</p>
         
-        <h2 style="margin-top:2rem;">网站功能特点 Key Features</h2>
+        <h2 style="margin-top:2rem;"><span class="zh">网站功能特点</span> <span class="en">Key Features</span></h2>
         <ul class="feature-list">
-            <li>覆盖胸、背、肩、手臂、腿、核心六大肌群的经典训练动作<br>Classic exercises covering chest, back, shoulders, arms, legs and core</li>
-            <li>点击动作图片弹出详细说明，清晰讲解动作流程和注意事项<br>Click exercise images to pop up detailed instructions and key notes</li>
-            <li>响应式设计，手机、平板、电脑都能正常浏览查看<br>Responsive design, works well on mobile, tablet and desktop</li>
-            <li>中英双语对照，方便中外学习者使用<br>Bilingual Chinese-English content for all users</li>
-            <li>所有动作均为入门友好，适合刚开始健身的新手参考<br>All exercises are beginner-friendly for new lifters</li>
+            <li><span class="zh">覆盖胸、背、肩、手臂、腿、核心六大肌群的经典训练动作</span><br><span class="en">Classic exercises covering chest, back, shoulders, arms, legs and core</span></li>
+            <li><span class="zh">点击动作图片弹出详细说明，清晰讲解动作流程和注意事项</span><br><span class="en">Click exercise images to pop up detailed instructions and key notes</span></li>
+            <li><span class="zh">响应式设计，手机、平板、电脑都能正常浏览查看</span><br><span class="en">Responsive design, works well on mobile, tablet and desktop</span></li>
+            <li><span class="zh">中英双语对照，方便中外学习者使用</span><br><span class="en">Bilingual Chinese-English content for all users</span></li>
+            <li><span class="zh">所有动作均为入门友好，适合刚开始健身的新手参考</span><br><span class="en">All exercises are beginner-friendly for new lifters</span></li>
         </ul>
 
-        <h2 style="margin-top:2rem;">使用建议 Usage Tips</h2>
-        <p>建议初学者从每个肌群的基础动作开始练习，每组完成8-12次，训练前充分热身，避免受伤。本网站仅作学习参考，不替代专业教练指导。</p>
-        <p>Beginners are suggested to start with basic exercises for each muscle group, 8-12 reps per set, and warm up thoroughly before training to avoid injury. This website is for reference only and does not replace professional coaching.</p>
+        <h2 style="margin-top:2rem;"><span class="zh">使用建议</span> <span class="en">Usage Tips</span></h2>
+        <p class="zh">建议初学者从每个肌群的基础动作开始练习，每组完成8-12次，训练前充分热身，避免受伤。本网站仅作学习参考，不替代专业教练指导。</p>
+        <p class="en">Beginners are suggested to start with basic exercises for each muscle group, 8-12 reps per set, and warm up thoroughly before training to avoid injury. This website is for reference only and does not replace professional coaching.</p>
     </div>
     <footer>
         &copy; BiUH Fitness Training Guide
     </footer>
     <script src="js/theme.js"></script>
+    <script>
+    (function initLang(){
+        const saved = localStorage.getItem('lang');
+        if(saved === 'en'){
+            document.documentElement.setAttribute('data-lang', 'en');
+            document.getElementById('langBtn').textContent = '中';
+        } else {
+            document.documentElement.setAttribute('data-lang', 'zh');
+            document.getElementById('langBtn').textContent = 'EN';
+        }
+    })();
+    function toggleLang(){
+        const current = document.documentElement.getAttribute('data-lang');
+        const next = current === 'en' ? 'zh' : 'en';
+        document.documentElement.setAttribute('data-lang', next);
+        localStorage.setItem('lang', next);
+        document.getElementById('langBtn').textContent = next === 'en' ? '中' : 'EN';
+    }
+    </script>
 </body>
 </html>
