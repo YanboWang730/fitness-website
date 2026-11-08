@@ -275,13 +275,32 @@
             background: var(--footer-bg);
             margin-top:1rem;
         }
-        @media (max-width:768px) {
+        @media (max-width: 768px) {
             .container {
                 flex-direction: column;
             }
             aside {
                 width: 100%;
                 min-height: auto;
+                padding: 1rem;
+            }
+            aside ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                justify-content: center;
+                list-style: none;
+                padding: 0;
+            }
+            aside li {
+                margin: 0;
+            }
+            main {
+                padding: 1rem;
+            }
+            .exercise-card img {
+                max-width: 100%;
+                height: auto;
             }
         }
     </style>
