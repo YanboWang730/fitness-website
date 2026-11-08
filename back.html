@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,42 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>背部训练 | Back Training</title>
     <style>
+        :root{
+            --bg: #f4f4f4;
+            --card-bg: #ffffff;
+            --text: #222222;
+            --text-muted: #777777;
+            --header-bg: #222222;
+            --header-text: #ffffff;
+            --nav-bg: #333333;
+            --nav-text: #ffffff;
+            --accent: #ff6b35;
+            --accent-hover: #e65a28;
+            --hover-bg: #eeeeee;
+            --placeholder-bg: #dddddd;
+            --footer-bg: #eeeeee;
+            --footer-text: #888888;
+            --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --modal-overlay: rgba(0,0,0,0.6);
+        }
+        [data-theme="dark"]{
+            --bg: #121212;
+            --card-bg: #1e1e1e;
+            --text: #e0e0e0;
+            --text-muted: #aaaaaa;
+            --header-bg: #1a1a1a;
+            --header-text: #e0e0e0;
+            --nav-bg: #2a2a2a;
+            --nav-text: #e0e0e0;
+            --accent: #ff8c3f;
+            --accent-hover: #ff6b35;
+            --hover-bg: #2a2a2a;
+            --placeholder-bg: #333333;
+            --footer-bg: #1a1a1a;
+            --footer-text: #888888;
+            --card-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            --modal-overlay: rgba(0,0,0,0.8);
+        }
         * {
             margin: 0;
             padding: 0;
@@ -18,17 +54,35 @@
             font-family: Arial, sans-serif;
         }
         body {
-            background-color: #f4f4f4;
-            color: #222;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.3s, color 0.3s;
         }
         header {
-            background-color: #222;
-            color: white;
+            background-color: var(--header-bg);
+            color: var(--header-text);
             padding: 1rem;
             text-align: center;
+            position: relative;
         }
         header h1 {
             font-size: 1.5rem;
+        }
+        .theme-toggle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: 2px solid #666;
+            color: var(--header-text);
+            border-radius: 20px;
+            padding: 4px 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
         }
         header h1 small {
             font-size: 1rem;
@@ -37,7 +91,7 @@
             display:block;
         }
         .top-nav{
-            background: #333;
+            background: var(--nav-bg);
             padding:0.7rem;
             text-align:center;
             display:flex;
@@ -46,19 +100,19 @@
             gap:20px;
         }
         .top-nav a{
-            color:#fff;
+            color: var(--nav-text);
             text-decoration:none;
             display:inline-block;
         }
         .top-nav a:hover{
-            color:#ff6b35;
+            color: var(--accent);
         }
         .container {
             display: flex;
         }
         aside {
             width: 180px;
-            background: #fff;
+            background: var(--card-bg);
             min-height: calc(100vh - 112px);
             padding: 2rem 1rem;
         }
@@ -75,18 +129,18 @@
         }
         aside a {
             text-decoration: none;
-            color: #222;
+            color: var(--text);
             padding: 6px 8px;
             display: block;
             border-radius: 4px;
             
         }
         aside a.active {
-            background-color: #ff6b35;
+            background-color: var(--accent);
             color: white;
         }
         aside a:hover:not(.active) {
-            background-color: #eee;
+            background-color: var(--hover-bg);
         }
         .en-text {
             font-size: 1rem;
@@ -100,17 +154,17 @@
         }
         h2 {
             margin-bottom: 2rem;
-            color: #222;
+            color: var(--text);
         }
         .exercise-card {
-            background: white;
+            background: var(--card-bg);
             padding: 1.5rem;
             border-radius: 10px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 8px #00000015;
+            box-shadow: var(--card-shadow);
         }
         .exercise-card h3 {
-            color: #ff6b35;
+            color: var(--accent);
             margin-bottom: 10px;
         }
         .exercise-card h3 .en-name {
@@ -122,13 +176,13 @@
             width: 100%;
             max-width: 450px;
             height: 260px;
-            background: #ddd;
+            background: var(--placeholder-bg);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 12px 0;
             border-radius: 6px;
-            color: #666;
+            color: var(--text-muted);
             cursor: pointer;
         }
         .exercise-card img {
@@ -137,13 +191,13 @@
             max-width: 450px;
             max-height: 260px;
             object-fit: contain;
-            background: #fff;
+            background: var(--card-bg);
             margin: 12px 0;
             border-radius: 6px;
             cursor: pointer;
         }
         .tip-text{
-            color:#777;
+            color: var(--text-muted);
             font-size:0.9em;
         }
         
@@ -153,7 +207,7 @@
             left:0;
             width:100%;
             height:100%;
-            background: rgba(0,0,0,0.6);
+            background: var(--modal-overlay);
             display:none;
             align-items:center;
             justify-content:center;
@@ -161,7 +215,7 @@
             padding:1rem;
         }
         .modal-box{
-            background:#fff;
+            background: var(--card-bg);
             max-width:600px;
             width:100%;
             padding:1.8rem;
@@ -174,13 +228,13 @@
             right:16px;
             font-size:1.6rem;
             cursor:pointer;
-            color:#666;
+            color: var(--text-muted);
         }
         .modal-close:hover{
-            color:#ff6b35;
+            color: var(--accent);
         }
         .modal-box h4{
-            color:#ff6b35;
+            color: var(--accent);
             margin-bottom:12px;
         }
         .modal-box p{
@@ -216,12 +270,20 @@
                 height: auto;
             }
         }
+        footer {
+            text-align:center;
+            padding:1.2rem;
+            color: var(--footer-text);
+            background: var(--footer-bg);
+            margin-top:1rem;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>健身训练指南 <small>Fitness Training Guide</small></h1>
     </header>
+    <button class='theme-toggle' onclick='toggleTheme()' id='themeBtn'>🌙</button>
     <nav class="top-nav">
         <a href="index.html">🏠 首页 <span class="en-text">Home</span></a>
         <a href="about.html">ℹ️ 关于 <span class="en-text">About</span></a>
@@ -267,11 +329,13 @@
         </main>
     </div>
 
-    <footer style="text-align:center; padding:1.2rem; color:#888; background:#eee; margin-top:1rem;">
+    <footer>
         <p>© Biuh Fitness Training Guide</p>
     </footer>
 
     
+    
+    <script src="js/theme.js"></script>
     <div class="modal-overlay" id="modal">
         <div class="modal-box">
             <span class="modal-close">&times;</span>

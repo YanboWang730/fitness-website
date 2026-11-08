@@ -11,6 +11,32 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>关于我们 | About This Site</title>
     <style>
+        :root{
+            --bg: #f4f4f4;
+            --card-bg: #ffffff;
+            --text: #222222;
+            --text-muted: #666666;
+            --header-bg: #222222;
+            --header-text: #ffffff;
+            --nav-bg: #333333;
+            --nav-text: #ffffff;
+            --accent: #ff6b35;
+            --footer-text: #666666;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        [data-theme="dark"]{
+            --bg: #121212;
+            --card-bg: #1e1e1e;
+            --text: #e0e0e0;
+            --text-muted: #aaaaaa;
+            --header-bg: #1a1a1a;
+            --header-text: #e0e0e0;
+            --nav-bg: #2a2a2a;
+            --nav-text: #e0e0e0;
+            --accent: #ff8c3f;
+            --footer-text: #888888;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
         * {
             margin: 0;
             padding: 0;
@@ -18,21 +44,39 @@
             font-family: Arial, sans-serif;
         }
         body {
-            background-color: #f4f4f4;
-            color: #222;
+            background-color: var(--bg);
+            color: var(--text);
             font-size: 1rem;
+            transition: background-color 0.3s, color 0.3s;
         }
         header {
-            background-color: #222;
-            color: white;
+            background-color: var(--header-bg);
+            color: var(--header-text);
             padding: 1rem;
             text-align: center;
+            position: relative;
         }
         header h1 {
             font-size: 1.5rem;
         }
+        .theme-toggle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: 2px solid #666;
+            color: var(--header-text);
+            border-radius: 20px;
+            padding: 4px 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
         .top-nav{
-            background: #333;
+            background: var(--nav-bg);
             padding:0.7rem;
             text-align:center;
             display:flex;
@@ -41,22 +85,23 @@
             gap:16px;
         }
         .top-nav a{
-            color:#fff;
+            color: var(--nav-text);
             text-decoration:none;
         }
         .top-nav a:hover{
-            color:#ff6b35;
+            color: var(--accent);
         }
         .main-content {
             max-width: 800px;
             margin: 3rem auto;
             padding: 2rem;
-            background: white;
+            background: var(--card-bg);
+            color: var(--text);
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: var(--card-shadow);
         }
         .main-content h2 {
-            color: #ff6b35;
+            color: var(--accent);
             margin-bottom: 1.5rem;
             font-size: 1.2rem;
         }
@@ -75,7 +120,7 @@
         footer {
             text-align: center;
             padding: 1.5rem;
-            color: #666;
+            color: var(--footer-text);
             font-size: 0.9rem;
         }
         @media (max-width: 768px) {
@@ -93,6 +138,7 @@
 <body>
     <header>
         <h1>健身训练指南 <br>Fitness Training Guide</h1>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
     </header>
     <nav class="top-nav">
         <a href="index.html">🏠 首页 Home</a>
@@ -120,5 +166,6 @@
     <footer>
         &copy; 2026 Fitness Training Guide
     </footer>
+    <script src="js/theme.js"></script>
 </body>
 </html>

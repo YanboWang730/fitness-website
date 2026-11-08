@@ -1,0 +1,27 @@
+// 主题初始化：优先读 localStorage，否则跟随系统
+(function initTheme(){
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = saved || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+})();
+
+// 页面加载后更新按钮图标
+document.addEventListener('DOMContentLoaded', function(){
+    updateThemeIcon();
+});
+
+function toggleTheme(){
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateThemeIcon();
+}
+
+function updateThemeIcon(){
+    const btn = document.getElementById('themeBtn');
+    if(!btn) return;
+    const theme = document.documentElement.getAttribute('data-theme');
+    btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+}

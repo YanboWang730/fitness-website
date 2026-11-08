@@ -10,6 +10,32 @@
     <meta property="og:url" content="https://yanbowang730.github.io/fitness-website/">
     <meta name="twitter:card" content="summary_large_image">
     <style>
+        :root{
+            --bg: #f4f4f4;
+            --card-bg: #ffffff;
+            --text: #222222;
+            --text-muted: #707070;
+            --header-bg: #222222;
+            --header-text: #ffffff;
+            --accent: #ff7722;
+            --accent-hover: #e66b1f;
+            --footer-bg: #eeeeee;
+            --footer-text: #888888;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        [data-theme="dark"]{
+            --bg: #121212;
+            --card-bg: #1e1e1e;
+            --text: #e0e0e0;
+            --text-muted: #aaaaaa;
+            --header-bg: #1a1a1a;
+            --header-text: #e0e0e0;
+            --accent: #ff8c3f;
+            --accent-hover: #ff7722;
+            --footer-bg: #1a1a1a;
+            --footer-text: #888888;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
         * {
             margin: 0;
             padding: 0;
@@ -17,18 +43,36 @@
             font-family: system-ui, sans-serif;
         }
         body {
-            background-color: #f4f4f4;
-            color: #222;
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
         }
         header {
-            background: #222;
-            color: white;
+            background: var(--header-bg);
+            color: var(--header-text);
             padding: 1rem 2rem;
             text-align: center;
+            position: relative;
         }
         header h1 {
             font-size: 1.5rem;
+        }
+        .theme-toggle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: 2px solid #666;
+            color: var(--header-text);
+            border-radius: 20px;
+            padding: 4px 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
         }
         small {
             font-weight: normal;
@@ -49,32 +93,32 @@
         }
         main h2 {
             margin-bottom: 2rem;
-            color: #333;
+            color: var(--text);
         }
         .intro-card {
-            background: #fff;
+            background: var(--card-bg);
             border-radius: 10px;
             padding: 2rem;
             max-width: 620px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            box-shadow: var(--card-shadow);
             margin-bottom: 2.5rem;
         }
         .intro-card h3 {
-            color: #ff7722;
+            color: var(--accent);
             margin-bottom: 1rem;
             font-size:1.3rem;
         }
         .en-name {
-            color:#777;
+            color: var(--text-muted);
             font-size:1rem;
             font-weight:normal;
         }
         .en-text {
-            color: #707070;
+            color: var(--text-muted);
             font-size: 1rem;
         }
         .start-btn {
-            background-color: #ff7722;
+            background-color: var(--accent);
             color: white;
             text-decoration: none;
             padding: 1rem 2.4rem;
@@ -90,7 +134,14 @@
             color: white;
         }
         .start-btn:hover {
-            background-color: #e66b1f;
+            background-color: var(--accent-hover);
+        }
+        footer {
+            text-align:center;
+            padding:1.2rem;
+            color: var(--footer-text);
+            background: var(--footer-bg);
+            margin-top:1rem;
         }
         /* 手机端响应式适配 */
         @media (max-width: 768px) {
@@ -105,12 +156,12 @@
                 font-size: 1rem;
             }
         }
-        
     </style>
 </head>
 <body>
 <header>
     <h1>健身训练指南 <small>Fitness Training Guide</small></h1>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
 </header>
 
 <div class="container">
@@ -132,12 +183,12 @@
     </main>
 </div>
 
-<footer style="text-align:center; padding:1.2rem; color:#888; background:#eee; margin-top:1rem;">
+<footer>
     <p>© Biuh Fitness Training Guide</p>
 </footer>
 
+<script src="js/theme.js"></script>
 <script>
-
 document.querySelector('.start-btn').addEventListener('click', function() {
     setTimeout(() => alert('Welcome! Let\'s start training!'), 100);
 });
