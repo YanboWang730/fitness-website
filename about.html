@@ -14,6 +14,7 @@
         body {
             background-color: #f4f4f4;
             color: #222;
+            font-size: 1rem;
         }
         header {
             background-color: #222;
@@ -24,21 +25,18 @@
         header h1 {
             font-size: 1.5rem;
         }
-        header h1 small {
-            font-size: 1rem;
-            font-weight: normal;
-            opacity: 0.75;
-            display:block;
-        }
         .top-nav{
             background: #333;
             padding:0.7rem;
             text-align:center;
+            display:flex;
+            justify-content:center;
+            flex-wrap:wrap;
+            gap:16px;
         }
         .top-nav a{
             color:#fff;
             text-decoration:none;
-            margin:0 12px;
         }
         .top-nav a:hover{
             color:#ff6b35;
@@ -54,11 +52,11 @@
         .main-content h2 {
             color: #ff6b35;
             margin-bottom: 1.5rem;
+            font-size: 1.2rem;
         }
         .main-content p {
             line-height: 1.8;
             margin-bottom: 1rem;
-            font-size: 1rem;
         }
         .feature-list {
             margin: 1.5rem 0;
@@ -79,8 +77,8 @@
                 margin: 1rem;
                 padding: 1.5rem;
             }
-            .top-nav a {
-                margin: 0 8px;
+            .top-nav {
+                gap: 10px;
                 font-size: 0.9rem;
             }
         }
@@ -88,28 +86,30 @@
 </head>
 <body>
     <header>
-        <h1>健身训练指南 <small>Fitness Training Guide</small></h1>
+        <h1>健身训练指南 <br>Fitness Training Guide</h1>
     </header>
     <nav class="top-nav">
-        <a href="index.html">🏠 首页 <span>Home</span></a>
-        <a href="chest.html">💪 肌群训练 <span>Training</span></a>
-        <a href="about.html">ℹ️ 关于 <span>About</span></a>
+        <a href="index.html">🏠 首页 Home</a>
+        <a href="chest.html">💪 肌群训练 Training</a>
+        <a href="about.html">ℹ️ 关于 About</a>
     </nav>
     <div class="main-content">
-        <h2>关于这个网站</h2>
+        <h2>关于这个网站 About This Website</h2>
         <p>这是一个专为健身初学者打造的训练指南网站，覆盖六大核心肌群的基础动作指导。每个动作都配有演示图片，点击图片即可查看详细动作步骤、发力要点和常见错误提醒。</p>
+        <p>This is a training guide website built for fitness beginners, covering basic exercises for 6 major muscle groups. Each exercise comes with a demo image; click the image to view detailed steps, key form tips and common mistakes to avoid.</p>
         
-        <h2 style="margin-top:2rem;">网站功能特点</h2>
+        <h2 style="margin-top:2rem;">网站功能特点 Key Features</h2>
         <ul class="feature-list">
-            <li>覆盖胸、背、肩、手臂、腿、核心六大肌群的经典训练动作</li>
-            <li>点击动作图片弹出详细说明，清晰讲解动作流程和注意事项</li>
-            <li>响应式设计，手机、平板、电脑都能正常浏览查看</li>
-            <li>中英双语对照，方便中外学习者使用</li>
-            <li>所有动作均为入门友好，适合刚开始健身的新手参考</li>
+            <li>覆盖胸、背、肩、手臂、腿、核心六大肌群的经典训练动作<br>Classic exercises covering chest, back, shoulders, arms, legs and core</li>
+            <li>点击动作图片弹出详细说明，清晰讲解动作流程和注意事项<br>Click exercise images to pop up detailed instructions and key notes</li>
+            <li>响应式设计，手机、平板、电脑都能正常浏览查看<br>Responsive design, works well on mobile, tablet and desktop</li>
+            <li>中英双语对照，方便中外学习者使用<br>Bilingual Chinese-English content for all users</li>
+            <li>所有动作均为入门友好，适合刚开始健身的新手参考<br>All exercises are beginner-friendly for new lifters</li>
         </ul>
 
-        <h2 style="margin-top:2rem;">使用建议</h2>
+        <h2 style="margin-top:2rem;">使用建议 Usage Tips</h2>
         <p>建议初学者从每个肌群的基础动作开始练习，每组完成8-12次，训练前充分热身，避免受伤。本网站仅作学习参考，不替代专业教练指导。</p>
+        <p>Beginners are suggested to start with basic exercises for each muscle group, 8-12 reps per set, and warm up thoroughly before training to avoid injury. This website is for reference only and does not replace professional coaching.</p>
     </div>
     <footer>
         &copy; 2026 Fitness Training Guide
