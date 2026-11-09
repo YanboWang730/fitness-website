@@ -451,12 +451,41 @@
                 document.getElementById('langBtn').textContent = 'EN';
             }
         }
+        let lastResult = null; // 保存上次计算结果，切换语言时更新
+
         function toggleLang() {
             const current = html.getAttribute('data-lang');
             const next = current === 'en' ? 'zh' : 'en';
             html.setAttribute('data-lang', next);
             localStorage.setItem('lang', next);
             document.getElementById('langBtn').textContent = next === 'en' ? '中' : 'EN';
+            // 如果已经算过，切换语言后更新结果文字
+            if (lastResult) {
+                updateResultLanguage();
+            }
+        }
+
+        function updateResultLanguage() {
+            const isEn = html.getAttribute('data-lang') === 'en';
+            let status, advice;
+            const bmi = lastResult.bmi;
+
+            if (bmi < 18.5) {
+                status = isEn ? 'Underweight' : '偏瘦';
+                advice = isEn ? 'Eat more, gain some weight' : '多吃点，适当增重哦';
+            } else if (bmi < 24) {
+                status = isEn ? 'Normal' : '正常';
+                advice = isEn ? 'Great! Keep it up' : '很棒！保持住';
+            } else if (bmi < 28) {
+                status = isEn ? 'Overweight' : '偏胖';
+                advice = isEn ? 'Eat less, exercise more' : '少吃点，多动一动';
+            } else {
+                status = isEn ? 'Obese' : '肥胖';
+                advice = isEn ? 'Time to get serious about fitness' : '该认真健身啦';
+            }
+
+            document.getElementById('bmiStatus').textContent = status;
+            document.getElementById('advice').textContent = advice;
         }
         initTheme();
         initLang();
@@ -562,6 +591,9 @@
 
             document.getElementById('advice').textContent = advice;
             document.getElementById('resultCard').classList.add('show');
+
+            // 保存结果，切换语言时用
+            lastResult = { bmi: bmi };
         }
     </script>
 </body>
