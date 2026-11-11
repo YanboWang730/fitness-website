@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI计算器 | BMI Calculator</title>
+    <meta property="og:title" content="Fitness Guide Website - BMI Calculator">
+    <meta property="og:description" content="Fitness training guide for different muscle groups">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://yanbowang730.github.io/fitness-website/images/og-fitness.jpg">
+    <meta property="og:url" content="https://yanbowang730.github.io/fitness-website/muscle-select.html">
     <style>
         :root{
             --bg: #f4f4f4;
@@ -253,10 +258,11 @@
             border-radius: 6px;
             overflow: visible;
         }
-        .scale-under { background: #90caf9; flex: 16; }
-        .scale-normal { background: #a5d6a7; flex: 16; }
-        .scale-over { background: #ffcc80; flex: 6; }
-        .scale-obese { background: #ef9a9a; flex: 12; }
+        /* 标尺区间按真实 BMI 范围比例：15~18.5 / 18.5~24 / 24~28 / 28~35 */
+        .scale-under { background: #90caf9; flex: 3.5; }
+        .scale-normal { background: #a5d6a7; flex: 5.5; }
+        .scale-over { background: #ffcc80; flex: 4; }
+        .scale-obese { background: #ef9a9a; flex: 7; }
         .scale-marker {
             position: absolute;
             top: -8px;
@@ -318,6 +324,10 @@
                     <span class="input-value"><span id="ageVal">25</span> <span class="zh">岁</span><span class="en">yrs</span></span>
                 </div>
                 <input type="range" id="age" min="10" max="50" value="25" oninput="updateAge(this.value)">
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; line-height: 1.5;">
+                    <span class="zh">年龄仅作记录参考，BMI 计算主要依据身高与体重；未成年人的评价标准与成人不同。</span>
+                    <span class="en">Age is for reference only; BMI mainly uses height and weight. Standards for minors differ from adults.</span>
+                </p>
             </div>
 
             <!-- 身高 -->
@@ -367,10 +377,10 @@
                     <div class="scale-obese"></div>
                 </div>
                 <div class="scale-labels">
-                    <span style="flex: 16">&lt;18.5</span>
-                    <span style="flex: 16">18.5~24</span>
-                    <span style="flex: 6">24~28</span>
-                    <span style="flex: 12">&gt;28</span>
+                    <span style="flex: 3.5">&lt;18.5</span>
+                    <span style="flex: 5.5">18.5~24</span>
+                    <span style="flex: 4">24~28</span>
+                    <span style="flex: 7">&gt;28</span>
                 </div>
             </div>
 
@@ -526,6 +536,9 @@
                 document.getElementById('weightVal').textContent = lb;
                 document.getElementById('weightUnit').textContent = 'lb';
             }
+
+            // 切换单位后，结果里的理想体重和差值同步换算
+            renderNumbers();
         }
 
         function calculateBMI() {
@@ -576,24 +589,31 @@
             marker.style.left = pct + '%';
             marker.style.display = 'block';
 
-            const idealRounded = idealWeight.toFixed(1);
-            document.getElementById('idealWeight').textContent = currentUnit === 'kg' ? idealRounded + ' kg' : (idealRounded * 2.2046).toFixed(1) + ' lb';
-
-            const diffRounded = Math.abs(diff).toFixed(1);
-            const diffEl = document.getElementById('weightDiff');
-            if (diff > 0) {
-                diffEl.innerHTML = '<span class="diff-positive">+' + diffRounded + ' ' + currentUnit + '</span>';
-            } else if (diff < 0) {
-                diffEl.innerHTML = '<span class="diff-negative">' + diffRounded + ' ' + currentUnit + '</span>';
-            } else {
-                diffEl.textContent = '0';
-            }
+            // 先保存结果，再渲染数字，切换语言/单位时复用
+            lastResult = { bmi: bmi, idealKg: idealWeight, diffKg: diff };
+            renderNumbers();
 
             document.getElementById('advice').textContent = advice;
             document.getElementById('resultCard').classList.add('show');
+        }
 
-            // 保存结果，切换语言时用
-            lastResult = { bmi: bmi };
+        // 根据当前单位显示理想体重和体重差异（lb 模式下同步换算）
+        function renderNumbers() {
+            if (!lastResult) return;
+            const toDisplay = (kg) => currentUnit === 'kg' ? kg : kg * 2.2046;
+            const unitText = currentUnit === 'kg' ? 'kg' : 'lb';
+
+            document.getElementById('idealWeight').textContent = toDisplay(lastResult.idealKg).toFixed(1) + ' ' + unitText;
+
+            const diffAbs = Math.abs(toDisplay(lastResult.diffKg)).toFixed(1);
+            const diffEl = document.getElementById('weightDiff');
+            if (lastResult.diffKg > 0) {
+                diffEl.innerHTML = '<span class="diff-positive">+' + diffAbs + ' ' + unitText + '</span>';
+            } else if (lastResult.diffKg < 0) {
+                diffEl.innerHTML = '<span class="diff-negative">-' + diffAbs + ' ' + unitText + '</span>';
+            } else {
+                diffEl.textContent = '0 ' + unitText;
+            }
         }
     </script>
 </body>
