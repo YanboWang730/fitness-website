@@ -111,6 +111,43 @@
         }
         main {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        /* 首页顶部大图 Banner */
+        .hero {
+            position: relative;
+            min-height: 62vh;
+            padding: 4rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image:
+                linear-gradient(rgba(15,18,24,0.55), rgba(15,18,24,0.72)),
+                url('images/hero-gym.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .hero h2 {
+            margin-bottom: 2rem;
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 1.3;
+            text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+        }
+        .hero .slogan {
+            margin: 24px 0 0;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--accent, #ff6b35);
+            text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+        }
+        .home-content {
+            flex: 1;
             padding: 3rem;
             display: flex;
             flex-direction: column;
@@ -181,8 +218,21 @@
         }
         /* 手机端响应式适配 */
         @media (max-width: 768px) {
-            main {
+            .home-content {
                 padding: 1.5rem;
+            }
+            .hero {
+                min-height: 60vh;
+                padding: 3rem 1.2rem;
+                background-image:
+                    linear-gradient(rgba(15,18,24,0.6), rgba(15,18,24,0.78)),
+                    url('images/hero-gym-small.jpg');
+            }
+            .hero h2 {
+                font-size: 1.9rem;
+            }
+            .hero .slogan {
+                font-size: 1rem;
             }
             .intro-card {
                 padding: 1.5rem;
@@ -204,25 +254,33 @@
 </header>
 
 <div class="container">
-    
+
     <main>
-        <h2><span class="zh">欢迎来到健身训练指南</span> <span class="en en-text" style="font-size: 3rem; color: var(--text); font-weight: bold; margin-top: 10px;">Welcome to Fitness Guide</span></h2>
-        <section class="intro-card">
-            <h3 style="color: var(--accent, #ff6b35);"><span class="zh">网站介绍</span> <span class="en en-name" style="color: var(--accent, #ff6b35);">About this site</span></h3>
-            <p class="zh">在这里你可以查询不同肌群的训练动作，包含目标发力部位、器械说明和动作要点。</p>
-            <p class="en en-text">You can look up training exercises for different muscle groups, including target muscles, equipment and instructions.</p>
-            <br>
-            <p class="zh">点击开始训练选择你想要训练的肌群，查看对应的训练动作。</p>
-            <p class="en en-text">Click Start Training, select the muscle groups you want to train, and view the corresponding training exercises.</p>
+        <section class="hero">
+            <h2>
+                <span class="zh">欢迎来到健身训练指南</span>
+                <span class="en en-text" style="font-size: 3rem; color: #ffffff; font-weight: bold; margin-top: 10px;">Welcome to Fitness Guide</span>
+            </h2>
+            <a href="chest.html" class="start-btn">
+                <span class="zh">开始训练</span>
+                <span class="en en-text">Begin Exercises</span>
+            </a>
+            <p class="slogan">
+                <span class="zh">科学训练，循序渐进，雕刻更好的自己</span>
+                <span class="en en-text" style="color: var(--accent, #ff6b35);">Train smart, progress step by step, build a better you</span>
+            </p>
         </section>
-        <a href="chest.html" class="start-btn">
-            <span class="zh">开始训练</span>
-            <span class="en en-text">Begin Exercises</span>
-        </a>
-        <p style="text-align:center; color: var(--accent, #ff6b35); font-style: italic; margin: 24px 0 0; font-size: 1.1rem;">
-            <span class="zh">科学训练，循序渐进，雕刻更好的自己</span>
-            <span class="en en-text" style="color: var(--accent, #ff6b35);">Train smart, progress step by step, build a better you</span>
-        </p>
+
+        <div class="home-content">
+            <section class="intro-card">
+                <h3 style="color: var(--accent, #ff6b35);"><span class="zh">网站介绍</span> <span class="en en-name" style="color: var(--accent, #ff6b35);">About this site</span></h3>
+                <p class="zh">在这里你可以查询不同肌群的训练动作，包含目标发力部位、器械说明和动作要点。</p>
+                <p class="en en-text">You can look up training exercises for different muscle groups, including target muscles, equipment and instructions.</p>
+                <br>
+                <p class="zh">点击开始训练选择你想要训练的肌群，查看对应的训练动作。</p>
+                <p class="en en-text">Click Start Training, select the muscle groups you want to train, and view the corresponding training exercises.</p>
+            </section>
+        </div>
     </main>
 </div>
 
